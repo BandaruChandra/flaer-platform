@@ -1,0 +1,160 @@
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+.scroll::-webkit-scrollbar-track {
+  display: hidden;
+}
+.scroll::-webkit-scrollbar-thumb {
+  display: hidden;
+}
+
+.imageContainer {
+  max-height: 180px;
+  width: 343px;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4;
+  margin-bottom: 10px;
+}
+
+.imageContainer2 {
+  max-height: 40px;
+  width: 343px;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4;
+  margin: 40px 0px;
+  padding: 15px 0px;
+}
+
+.productImage {
+  max-height: 40px;
+  width: 343px;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/4;
+}
+
+.imgClass {
+  animation: scaleAnimation 5s infinite;
+}
+
+@keyframes scaleAnimation {
+  100% {
+    transform: scale(1);
+  }
+  0% {
+    transform: scale(1.2);
+  }
+}
+
+/* for third image */
+@keyframes topToBotton {
+  0%,
+  100% {
+    transform: translateY(-5%);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-1%);
+    opacity: 1;
+  }
+}
+
+.heroImg3 {
+  animation: topToBotton 5s infinite;
+}
+
+@keyframes bottonToTop {
+  0%,
+  100% {
+    transform: translateY(2.5%);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-3%);
+    opacity: 1;
+  }
+}
+
+.heroImg4 {
+  animation: bottonToTop 5s infinite;
+}
+
+.sideBar {
+  animation: sideBarSlide 0.5s ease-out;
+}
+
+@keyframes sideBarSlide {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+.slantDivButton {
+  animation: slantDivButtonAnn 2s infinite;
+}
+
+@keyframes slantDivButtonAnn {
+  0% {
+    transform: translateX(-100%) rotate(25deg);
+  }
+  100% {
+    transform: translateX(1000%) rotate(25deg);
+  }
+}
+
+/* hide scroll */
+.hideScrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hideScrollbar::-webkit-scrollbar-track {
+  display: none;
+}
+
+.hideScrollbar::-webkit-scrollbar-thumb {
+  display: none;
+}
+
+.fd_plp_bg {
+  background-image: url('https://flaer-website-assets.s3.ap-south-1.amazonaws.com/fd_plp_bg.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.fd_banner_bg {
+  background-image: url('https://flaer-website-assets.s3.ap-south-1.amazonaws.com/fd_banner_bg.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.fs_banner_bg {
+  background-image: url('https://flaer-website-assets.s3.ap-south-1.amazonaws.com/fs_banner_bg.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.home_banner_overlay {
+  background-image: url('https://flaer-website-assets.s3.ap-south-1.amazonaws.com/overlay.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.home_banner_bg {
+  background-image: url('https://flaer-website-assets.s3.ap-south-1.amazonaws.com/hero_image1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.gleaming_bg {
+  background-image: url('https://flaer-website-assets.s3.ap-south-1.amazonaws.com/gleaming.png');
+  background-size: cover;
+  background-position: center;
+}
