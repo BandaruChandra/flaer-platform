@@ -6,12 +6,14 @@ import AccountRecharge from './AccountRecharge/Index';
 import BusinessPartner from './BusinessPartner/Index';
 import ProjectAndSite from './ProjectAndSite/Index';
 import Logout from './Logout/Index';
+import CashbackLevels from './CashbacksLevels/Index';
+import OrderLevelDiscount from './OrderLevelDiscount/Index';
 
 function DashboardIndex({ type }) {
   let url = `/dashboard/${type}`;
 
   return (
-    <div className='min-h-[80vh]'>
+    <div className='min-h-[80vh] mt-10'>
       {url === DASHBOARD_ROUTES.ACTIVE_MEMBERSHIPS_LIST ? (
         <ActiveMembershipList />
       ) : url === DASHBOARD_ROUTES.PARTNERS_AND_PARTNER_USERS_LIST ? (
@@ -24,8 +26,10 @@ function DashboardIndex({ type }) {
         <ProjectAndSite />
       ) : url === DASHBOARD_ROUTES.LOGOUT ? (
         <Logout />
-      ) : url === 'cart' ? (
-        <Logout />
+      ) : url === DASHBOARD_ROUTES.CASHBACKS_LEVELS ? (
+        <CashbackLevels />
+      ) : url === DASHBOARD_ROUTES.ORDER_LEVEL_DISCOUNTS ? (
+        <OrderLevelDiscount />
       ) : (
         ''
       )}

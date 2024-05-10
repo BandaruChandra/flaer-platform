@@ -1,14 +1,16 @@
-import { Inter } from 'next/font/google';
+import { Outfit } from 'next/font/google';
 import './globals.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import Footer from '../../components/Home/Footer';
 import Head from 'next/head';
 
-const inter = Inter({ subsets: ['latin'] });
-
-// import type { Metadata } from 'next';
-
-// export const metadata: Metadata = {
-//   //your other metadata
-// };
+const inter = Outfit({
+  subsets: ['latin-ext'],
+  display: 'swap',
+  adjustFontFallback: false,
+});
 
 export const metadata = {
   manifest: '/manifest.json',
@@ -22,7 +24,13 @@ export default function RootLayout({ children }) {
       <Head>
         <link rel='manifest' href='/manifest.json'></link>
       </Head>
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} text-gray-800`}>
+        <ToastContainer />
+
+        {children}
+
+        <Footer />
+      </body>
     </html>
   );
 }

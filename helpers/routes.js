@@ -4,7 +4,7 @@ export const DASHBOARD_ROUTES = {
   LEDGERS: '/dashboard/ledgers',
   ACCOUNT_RECHARGE: '/dashboard/account-recharge',
   ORDER_LEVEL_DISCOUNTS: '/dashboard/order-level-discounts',
-  CASHBACKS: '/dashboard/cashbacks',
+  CASHBACKS_LEVELS: '/dashboard/cashbacks-level',
   PROJECT_AND_SITE: '/dashboard/project-and-site',
   UPDATE_BUSINESS_PARTNER: '/dashboard/business-partner',
   LOGOUT: '/dashboard/logout',

@@ -1,7 +1,12 @@
-import React from 'react';
+// pages/index.js
+import ShareQRCode from './QRCode/ShareQRCode';
 
-function AccountRecharge() {
-  return <div>AccountRecharge</div>;
-}
+const AccountRecharge = () => {
+  return (
+    <div>
+      <ShareQRCode />
+    </div>
+  );
+};
 
 export default AccountRecharge;

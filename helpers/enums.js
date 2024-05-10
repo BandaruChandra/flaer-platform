@@ -108,31 +108,50 @@ export const DASHBOARD_MENU_LIST = [
     name: 'Partner & Partner Users',
     link: DASHBOARD_ROUTES.PARTNERS_AND_PARTNER_USERS_LIST,
     icon: <HiOutlineBanknotes />,
-    id: 8,
+    id: 2,
   },
 
   {
     name: 'Sharable QR',
     link: DASHBOARD_ROUTES.ACCOUNT_RECHARGE,
     icon: <MdOutlinePersonOutline />,
-    id: 2,
+    id: 3,
   },
 
   {
     name: 'Business Partner',
     link: DASHBOARD_ROUTES.UPDATE_BUSINESS_PARTNER,
     icon: <TbShoppingCartCheck />,
-    id: 9,
+    id: 4,
+  },
+  {
+    name: 'Order Level Discount',
+    link: DASHBOARD_ROUTES.ORDER_LEVEL_DISCOUNTS,
+    icon: <TbShoppingCartCheck />,
+    id: 5,
+  },
+  {
+    name: 'Ledgers',
+    link: DASHBOARD_ROUTES.LEDGERS,
+    icon: <TbShoppingCartCheck />,
+    id: 6,
+  },
+
+  {
+    name: 'Cashbacks Levels',
+    link: DASHBOARD_ROUTES.CASHBACKS_LEVELS,
+    icon: <TbShoppingCartCheck />,
+    id: 7,
   },
 
   {
     name: 'Project and Site',
     link: DASHBOARD_ROUTES.PROJECT_AND_SITE,
     icon: <MdOutlineShoppingBag />,
-    id: 4,
+    id: 8,
   },
 
-  { name: 'Logout', link: DASHBOARD_ROUTES.LOGOUT, icon: <MdLogout />, id: 7 },
+  { name: 'Logout', link: DASHBOARD_ROUTES.LOGOUT, icon: <MdLogout />, id: 9 },
 ];
 
 export const RESPONSE_STATUS = {

@@ -1,10 +1,8 @@
 import DashboardIndex from '../../../../components/Dashboard/DashboardIndex';
 
 function page({ params }) {
-  console.log('params: ', params);
-
   return (
-    <div className='text-black'>
+    <div className='text-red-500'>
       <DashboardIndex type={params?.type} />
     </div>
   );

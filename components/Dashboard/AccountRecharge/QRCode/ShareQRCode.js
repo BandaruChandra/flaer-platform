@@ -7,7 +7,7 @@ import QrImage from './QRImage';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const QRCodeComponent = () => {
+const ShareQRCode = () => {
   const [imageUrl, setImageUrl] = useState(null);
   const [shareImgUrl, setShareImgUrl] = useState('');
   const [contact, setContact] = useState({
@@ -159,4 +159,4 @@ const QRCodeComponent = () => {
   );
 };
 
-export default QRCodeComponent;
+export default ShareQRCode;

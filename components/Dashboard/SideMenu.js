@@ -35,7 +35,7 @@ function SideMenu() {
                 className={`${
                   item.link === path
                     ? 'bg-[#ECEFF8] text-darkBlue font-medium'
-                    : 'text-gray-800'
+                    : ''
                 }  border-b rounded-lg border-white flex items-center gap-3 pr-4 h-14 min-w-fit w-full hover:text-darkBlue text-base`}
               >
                 <p
