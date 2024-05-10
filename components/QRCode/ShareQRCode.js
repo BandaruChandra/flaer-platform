@@ -26,8 +26,6 @@ const QRCodeComponent = () => {
       contact?.amount || 0
     }.0&cu=INR&mc=5411`;
 
-    // payment_string = `upi://pay?pa=FLAER@icici&pn=FLAER HOMES PRIVATE LIMITED&tr=EZY202405051641309847&am=32.0&cu=INR&mc=5411`;
-
     try {
       QRCode.toDataURL(payment_string).then((val) => setImageUrl(val));
     } catch (error) {
@@ -37,17 +35,12 @@ const QRCodeComponent = () => {
 
   const handleShareQRCode = () => {
     const qrElement = qrRef.current;
-    const rect = qrElement.getBoundingClientRect();
 
     html2canvas(qrElement, {
       x: 0,
       y: 0,
       width: 350,
       height: 500,
-      //   x: rect.x,
-      //   y: rect.y,
-      //   width: rect.width,
-      //   height: rect.height,
     }).then((canvas) => {
       const url = canvas.toDataURL(imageUrl);
       setShareImgUrl(url);
@@ -71,10 +64,7 @@ const QRCodeComponent = () => {
   };
 
   return (
-    <form
-      className='lg:p-10 grid place-items-center bg-gray-100'
-      onSubmit={generateQR}
-    >
+    <form className='lg:p-10 grid place-items-center' onSubmit={generateQR}>
       <div className='w-[300px] mt-10'>
         <input
           className='focus:outline-none w-[100%] h-10 lg:h-14 pl-4 mb-4 border border-borderGray rounded-md'
@@ -127,7 +117,6 @@ const QRCodeComponent = () => {
         <div className='pt-6 text-center grid place-items-center'>
           <QrImage imgSrc={imageUrl} />
         </div>
-
         <div className='absolute bottom-4 left-5'>
           <p className='text-xs text-pGray'>
             Flaer Homes © Copyright 2024, Inc. All rights reserved

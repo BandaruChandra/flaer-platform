@@ -8,7 +8,6 @@ function QrImage({ imgSrc }) {
           <p className='min-w-fit truncate pb-2'>
             Scan using any upi app to pay.
           </p>
-
           <div className='w-[300px] h-[270px] pt-6 mx-auto px-5'>
             <Image
               src={imgSrc}
@@ -18,7 +17,6 @@ function QrImage({ imgSrc }) {
               height={269}
             />
           </div>
-
           {/* <p className='min-w-fit truncate pt-6'>Pay using this QRCode</p> */}
         </div>
       ) : (

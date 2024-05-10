@@ -1,13 +1,10 @@
 // pages/index.js
-
-import Link from 'next/link';
+import QRCodeComponent from '../../../components/QRCode/ShareQRCode';
 
 const HomePage = () => {
   return (
     <div>
-      <div> Home Page </div>
-
-      <Link href={`/qrcode`}> QR Page </Link>
+      <QRCodeComponent />
     </div>
   );
 };
