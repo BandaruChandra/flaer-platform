@@ -9,7 +9,7 @@ function SideMenu() {
   const path = usePathname();
 
   return (
-    <article className='bg-white overflow-hidden sticky top-0 left-0 pt-10 pl-10 pr-6 border-r h-[100vh]'>
+    <article className='bg-white pt-10 overflow-hidden pl-10 pr-6 sticky top-0 left-0'>
       <div className='col-span-1 h-12'>
         <Link
           href={DASHBOARD_ROUTES.ACTIVE_MEMBERSHIPS_LIST}
@@ -34,7 +34,7 @@ function SideMenu() {
               <button
                 className={`${
                   item.link === path
-                    ? 'bg-[#ECEFF8] text-darkBlue font-medium'
+                    ? 'bg-lightBlue text-darkBlue font-medium'
                     : ''
                 }  border-b rounded-lg border-white flex items-center gap-3 pr-4 h-14 min-w-fit w-full hover:text-darkBlue text-base`}
               >

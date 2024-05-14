@@ -9,9 +9,7 @@ import Logout from './Logout/Index';
 import CashbackLevels from './CashbacksLevels/Index';
 import OrderLevelDiscount from './OrderLevelDiscount/Index';
 
-function DashboardIndex({ type }) {
-  let url = `/dashboard/${type}`;
-
+function DashboardIndex({ url }) {
   return (
     <div className='min-h-[80vh] mt-10'>
       {url === DASHBOARD_ROUTES.ACTIVE_MEMBERSHIPS_LIST ? (

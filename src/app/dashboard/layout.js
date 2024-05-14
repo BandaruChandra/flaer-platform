@@ -2,11 +2,13 @@ import SideMenu from '../../../components/Dashboard/SideMenu';
 
 function DashBoardLayout({ children }) {
   return (
-    <div className='flex gap-10 xl:gap-12 2xl:gap-16'>
+    <div className='flex pr-[5vw] relative'>
       <div className='min-w-fit hidden lg:block'>
         <SideMenu />
       </div>
-      <div className=''>{children}</div>
+
+      <div className='border-r'></div>
+      <div className='w-full ml-16'> {children}</div>
     </div>
   );
 }

@@ -1,0 +1,239 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "id": 1,
+      "start_date": "2024-05-04",
+      "end_date": "2025-05-04",
+      "total_membership_discount": "0.0",
+      "business_partner": {
+        "id": 7,
+        "name": "Sainathreddy",
+        "email": null,
+        "phone_number": "7093620019"
+      },
+      "flaer_membership": {
+        "id": 1,
+        "name": "Gold Membership",
+        "membership_code": "GOLD123",
+        "membership_cycle": "monthly",
+        "number_of_days": 365
+      }
+    },
+    {
+      "id": 2,
+      "start_date": "2024-05-10",
+      "end_date": "2025-05-10",
+      "total_membership_discount": "0.0",
+      "business_partner": {
+        "id": 11,
+        "name": "chandra",
+        "email": "chandra123@gmail.com",
+        "phone_number": "8977539314"
+      },
+      "flaer_membership": {
+        "id": 1,
+        "name": "Gold Membership",
+        "membership_code": "GOLD123",
+        "membership_cycle": "monthly",
+        "number_of_days": 365
+      }
+    },
+    {
+      "id": 1,
+      "start_date": "2024-05-04",
+      "end_date": "2025-05-04",
+      "total_membership_discount": "0.0",
+      "business_partner": {
+        "id": 7,
+        "name": "Sainathreddy",
+        "email": null,
+        "phone_number": "7093620019"
+      },
+      "flaer_membership": {
+        "id": 1,
+        "name": "Gold Membership",
+        "membership_code": "GOLD123",
+        "membership_cycle": "monthly",
+        "number_of_days": 365
+      }
+    },
+    {
+      "id": 2,
+      "start_date": "2024-05-10",
+      "end_date": "2025-05-10",
+      "total_membership_discount": "0.0",
+      "business_partner": {
+        "id": 11,
+        "name": "chandra",
+        "email": "chandra123@gmail.com",
+        "phone_number": "8977539314"
+      },
+      "flaer_membership": {
+        "id": 1,
+        "name": "Gold Membership",
+        "membership_code": "GOLD123",
+        "membership_cycle": "monthly",
+        "number_of_days": 365
+      }
+    },
+    {
+      "id": 1,
+      "start_date": "2024-05-04",
+      "end_date": "2025-05-04",
+      "total_membership_discount": "0.0",
+      "business_partner": {
+        "id": 7,
+        "name": "Sainathreddy",
+        "email": null,
+        "phone_number": "7093620019"
+      },
+      "flaer_membership": {
+        "id": 1,
+        "name": "Gold Membership",
+        "membership_code": "GOLD123",
+        "membership_cycle": "monthly",
+        "number_of_days": 365
+      }
+    },
+    {
+      "id": 2,
+      "start_date": "2024-05-10",
+      "end_date": "2025-05-10",
+      "total_membership_discount": "0.0",
+      "business_partner": {
+        "id": 11,
+        "name": "chandra",
+        "email": "chandra123@gmail.com",
+        "phone_number": "8977539314"
+      },
+      "flaer_membership": {
+        "id": 1,
+        "name": "Gold Membership",
+        "membership_code": "GOLD123",
+        "membership_cycle": "monthly",
+        "number_of_days": 365
+      }
+    },
+    {
+      "id": 1,
+      "start_date": "2024-05-04",
+      "end_date": "2025-05-04",
+      "total_membership_discount": "0.0",
+      "business_partner": {
+        "id": 7,
+        "name": "Sainathreddy",
+        "email": null,
+        "phone_number": "7093620019"
+      },
+      "flaer_membership": {
+        "id": 1,
+        "name": "Gold Membership",
+        "membership_code": "GOLD123",
+        "membership_cycle": "monthly",
+        "number_of_days": 365
+      }
+    },
+    {
+      "id": 2,
+      "start_date": "2024-05-10",
+      "end_date": "2025-05-10",
+      "total_membership_discount": "0.0",
+      "business_partner": {
+        "id": 11,
+        "name": "chandra",
+        "email": "chandra123@gmail.com",
+        "phone_number": "8977539314"
+      },
+      "flaer_membership": {
+        "id": 1,
+        "name": "Gold Membership",
+        "membership_code": "GOLD123",
+        "membership_cycle": "monthly",
+        "number_of_days": 365
+      }
+    },
+    {
+      "id": 1,
+      "start_date": "2024-05-04",
+      "end_date": "2025-05-04",
+      "total_membership_discount": "0.0",
+      "business_partner": {
+        "id": 7,
+        "name": "Sainathreddy",
+        "email": null,
+        "phone_number": "7093620019"
+      },
+      "flaer_membership": {
+        "id": 1,
+        "name": "Gold Membership",
+        "membership_code": "GOLD123",
+        "membership_cycle": "monthly",
+        "number_of_days": 365
+      }
+    },
+    {
+      "id": 2,
+      "start_date": "2024-05-10",
+      "end_date": "2025-05-10",
+      "total_membership_discount": "0.0",
+      "business_partner": {
+        "id": 11,
+        "name": "chandra",
+        "email": "chandra123@gmail.com",
+        "phone_number": "8977539314"
+      },
+      "flaer_membership": {
+        "id": 1,
+        "name": "Gold Membership",
+        "membership_code": "GOLD123",
+        "membership_cycle": "monthly",
+        "number_of_days": 365
+      }
+    },
+    {
+      "id": 1,
+      "start_date": "2024-05-04",
+      "end_date": "2025-05-04",
+      "total_membership_discount": "0.0",
+      "business_partner": {
+        "id": 7,
+        "name": "Sainathreddy",
+        "email": null,
+        "phone_number": "7093620019"
+      },
+      "flaer_membership": {
+        "id": 1,
+        "name": "Gold Membership",
+        "membership_code": "GOLD123",
+        "membership_cycle": "monthly",
+        "number_of_days": 365
+      }
+    },
+    {
+      "id": 2,
+      "start_date": "2024-05-10",
+      "end_date": "2025-05-10",
+      "total_membership_discount": "0.0",
+      "business_partner": {
+        "id": 11,
+        "name": "chandra",
+        "email": "chandra123@gmail.com",
+        "phone_number": "8977539314"
+      },
+      "flaer_membership": {
+        "id": 1,
+        "name": "Gold Membership",
+        "membership_code": "GOLD123",
+        "membership_cycle": "monthly",
+        "number_of_days": 365
+      }
+    }
+  ],
+  "meta": {
+    "current_page": 0,
+    "total_pages": 1,
+    "total_data_count": 2
+  },
+  "errors": []
+}
