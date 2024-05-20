@@ -6,10 +6,11 @@ import AccountDetails from './AccountDetails/Index';
 import SiteLevelCashback from './SiteLevelCashback/Index';
 import OrderLevelCashback from './OrderLevelCashback/Index';
 import PeriodicLevelCashback from './PeriodicLevelCashback/Index';
+import LoyaltyPoints from './LoyaltyPoints/Index';
 
 function BusinessPartnerDetails({ url, id }) {
   return (
-    <section className='min-h-[80vh] mt-10'>
+    <section className='min-h-[80vh] mt-10 mb-40'>
       <div className='mt-20 mb-12'>
         <Toggler url={url} id={id} />
       </div>
@@ -25,6 +26,8 @@ function BusinessPartnerDetails({ url, id }) {
           <OrderLevelCashback id={id} />
         ) : url === BUSINESS_PARTNER_ROUTES.PERIODIC_LEVEL_CASHBACK ? (
           <PeriodicLevelCashback id={id} />
+        ) : url === BUSINESS_PARTNER_ROUTES.LOYALTY_POINTS ? (
+          <LoyaltyPoints id={id} />
         ) : (
           ''
         )}

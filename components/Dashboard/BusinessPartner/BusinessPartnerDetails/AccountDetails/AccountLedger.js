@@ -34,7 +34,7 @@ const AccountLedger = async ({ id }) => {
   const data = await getAccountLedger(id);
 
   return (
-    <table className='min-w-full rounded-md  mt-10'>
+    <table className='min-w-full overflow-hidden rounded-md'>
       <thead className='capitalise font-normal bg-lightBlue'>
         <tr>
           <th scope='col' className='py-3 font-medium pl-4 text-start truncate'>
@@ -70,9 +70,7 @@ const LedgerRow = ({ item }) => {
   return (
     <tr key={item.id} className={`border-b text-gray-700 odd:bg-white`}>
       <td className='py-4 pl-4 min-w-28'>{item.id}</td>
-      <td className='py-4 pl-4 min-w-[200px] lg:min-w-[300px]'>
-        {item?.transaction_date}
-      </td>
+      <td className='py-4 pl-4'>{item?.transaction_date}</td>
 
       <td className='py-4 pl-4'>
         <div

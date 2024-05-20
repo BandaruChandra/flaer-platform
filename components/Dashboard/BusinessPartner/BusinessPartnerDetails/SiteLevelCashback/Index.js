@@ -1,6 +1,6 @@
 import React from 'react';
 import { RESPONSE_STATUS } from '../../../../../helpers/enums';
-import Header from './Header';
+import Header from '../Header';
 import SiteLevelLedger from './SiteLevelLedger';
 
 const getSiteLevelAmount = async (id) => {
@@ -36,8 +36,14 @@ async function SiteLevelCashback({ id }) {
 
   return (
     <div>
-      <Header data={data} />
-      <SiteLevelLedger id={id} />
+      <Header
+        heading={'Site Level Cashback'}
+        amount={data?.total_site_level_cashback_amount}
+      />
+      <div className='mt-10'>
+        <h4 className='mb-4 font-semibold text-2xl'> Site Level Ledger </h4>
+        <SiteLevelLedger id={id} />
+      </div>
     </div>
   );
 }

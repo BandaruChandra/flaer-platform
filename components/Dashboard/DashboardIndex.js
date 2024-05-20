@@ -10,7 +10,7 @@ import OrderLevelDiscount from './OrderLevelDiscount/Index';
 
 function DashboardIndex({ url }) {
   return (
-    <div className='min-h-[80vh] mt-10'>
+    <div className='min-h-[80vh] my-10'>
       {url === DASHBOARD_ROUTES.ACTIVE_MEMBERSHIPS_LIST ? (
         <ActiveMembershipList />
       ) : url === DASHBOARD_ROUTES.ACCOUNT_RECHARGE ? (

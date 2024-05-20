@@ -8,7 +8,7 @@ function DashBoardLayout({ children }) {
       </div>
 
       <div className='border-r'></div>
-      <div className='w-full ml-16'> {children}</div>
+      <div className='w-full ml-8 2xl:ml-16'> {children}</div>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { RESPONSE_STATUS } from '../../../../../helpers/enums';
-import Header from './Header';
+import Header from '../Header';
 import AccountLedger from './AccountLedger';
 
 const getAccountDetails = async (id) => {
@@ -19,8 +19,6 @@ const getAccountDetails = async (id) => {
     //VWA
     let res = await response.json();
 
-    // console.log('response: ', response);
-
     if (res.status === RESPONSE_STATUS.SUCCESS) {
       return res;
     } else {
@@ -34,12 +32,16 @@ const getAccountDetails = async (id) => {
 };
 
 async function AccountDetails({ id }) {
-  const accountData = await getAccountDetails(id);
+  const data = await getAccountDetails(id);
 
   return (
     <div>
-      <Header data={accountData} />
-      <AccountLedger id={id} />
+      <Header heading={'Account Balance'} amount={data?.account_amount} />
+
+      <div className='mt-10'>
+        <h4 className='mb-4 font-semibold text-2xl'> Account Ledger </h4>
+        <AccountLedger id={id} />
+      </div>
     </div>
   );
 }

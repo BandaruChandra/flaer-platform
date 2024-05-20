@@ -218,7 +218,7 @@ export const BUSINESS_PARTNER_MENU = [
   },
 
   {
-    name: 'Periodic Level Cashback',
+    name: 'Periodic Cashback',
     link: BUSINESS_PARTNER_ROUTES.PERIODIC_LEVEL_CASHBACK,
     id: 6,
   },

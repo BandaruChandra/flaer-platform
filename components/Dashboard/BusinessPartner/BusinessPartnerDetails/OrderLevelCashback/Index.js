@@ -1,6 +1,6 @@
 import React from 'react';
 import { RESPONSE_STATUS } from '../../../../../helpers/enums';
-import Header from './Header';
+import Header from '../Header';
 import OrderLevelLedger from './OrderLevelLedger';
 
 const getOrderLevelAmount = async (id) => {
@@ -36,8 +36,15 @@ async function OrderLevelCashback({ id }) {
 
   return (
     <div>
-      <Header data={data} />
-      <OrderLevelLedger id={id} />
+      <Header
+        heading={'Order Level Cashback'}
+        amount={data?.total_order_level_discounts}
+      />
+
+      <div className='mt-10'>
+        <h4 className='mb-4 font-semibold text-2xl'> Order Level Ledger </h4>
+        <OrderLevelLedger id={id} />
+      </div>
     </div>
   );
 }

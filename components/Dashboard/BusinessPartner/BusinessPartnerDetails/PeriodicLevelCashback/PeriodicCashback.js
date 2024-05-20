@@ -34,7 +34,7 @@ const PeriodicLevelLedger = async ({ id }) => {
   const data = await getPeriodicLevelLedger(id);
 
   return (
-    <table className='min-w-full rounded-md  mt-10'>
+    <table className='min-w-full rounded-md'>
       <thead className='capitalise font-normal bg-lightBlue'>
         <tr>
           <th scope='col' className='py-3 font-medium pl-4 text-start'>
@@ -76,14 +76,10 @@ const PeriodicLevelLedger = async ({ id }) => {
 };
 
 const LedgerRow = ({ order_attribute }) => {
-  console.log('order_attribute: ', order_attribute);
-
   return (
     <tr className={`border-b text-gray-700 odd:bg-white`}>
       <td className='py-4 pl-4 min-w-28'>{order_attribute?.order_id}</td>
-      <td className='py-4 pl-4 min-w-[200px] lg:min-w-[300px]'>
-        {order_attribute?.attribute_name}
-      </td>
+      <td className='py-4 pl-4'>{order_attribute?.attribute_name}</td>
 
       <td className='py-4 pl-4'>
         <div

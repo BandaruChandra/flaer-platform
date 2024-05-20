@@ -9,7 +9,7 @@ function SideMenu() {
   const path = usePathname();
 
   return (
-    <article className='bg-white pt-10 overflow-hidden pl-10 pr-6 sticky top-0 left-0'>
+    <article className='pt-10 overflow-hidden 2xl:pl-10 lg:px-5 sticky top-0 left-0'>
       <div className='col-span-1 h-12'>
         <Link
           href={DASHBOARD_ROUTES.ACTIVE_MEMBERSHIPS_LIST}

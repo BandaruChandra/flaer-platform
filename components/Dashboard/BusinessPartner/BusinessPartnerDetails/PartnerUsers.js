@@ -34,9 +34,9 @@ async function PartnerUsers({ id }) {
   const data = await getBusinessPartnerUsers(id);
 
   return (
-    <div className='mt-12'>
+    <div className='mt-12 border rounded-md'>
       <div className='min-w-full overflow-hidden'>
-        <div className='grid grid-cols-7 capitalise font-medium bg-lightBlue pr-4 h-12 items-center'>
+        <div className='grid grid-cols-7 capitalise font-medium bg-lightBlue pr-4 min-h-14 items-center'>
           <div className='pl-4 col-span-1 text-start truncate'>Id</div>
           <div className='pl-4 col-span-1 text-start'>Name</div>
           <div className='pl-4 col-span-1 text-start'>Email</div>
@@ -47,18 +47,25 @@ async function PartnerUsers({ id }) {
         </div>
 
         {data?.data?.map((item, ind) => {
-          return <PartnerRow key={ind} data={item} ind={ind} />;
+          return (
+            <PartnerRow
+              key={ind}
+              data={item}
+              ind={ind}
+              lastElement={ind === data?.data?.length - 1}
+            />
+          );
         })}
       </div>
     </div>
   );
 }
 
-const PartnerRow = ({ data, ind }) => {
+const PartnerRow = ({ data, lastElement }) => {
   return (
     <div
-      className={`grid grid-cols-7 min-h-12 py-2 text-gray-700 items-center font-medium ${
-        ind % 2 != 0 ? 'bg-gray-100' : ''
+      className={`grid grid-cols-7 min-h-14 py-2 text-gray-700 items-center font-medium ${
+        !lastElement ? 'border-b' : ''
       }`}
     >
       <div className='pl-4 text-start col-span-1'>{data?.id}</div>

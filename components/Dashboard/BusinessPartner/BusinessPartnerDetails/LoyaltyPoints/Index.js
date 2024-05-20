@@ -1,12 +1,12 @@
 import React from 'react';
 import { RESPONSE_STATUS } from '../../../../../helpers/enums';
 import Header from '../Header';
-import PeriodicCashback from './PeriodicCashback';
+import LoyaltyLedger from './LoyaltyLedger';
 
-const getPeriodicLevelAmount = async (id) => {
+const getLoyaltyAmount = async (id) => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/flaer_platform/v1/platform/total_periodic_cashback_amount?business_partner_id=${id}`,
+      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/flaer_platform/v1/platform/get_loyalty_amount?business_partner_id=${id}`,
       {
         method: 'GET',
         headers: {
@@ -19,7 +19,7 @@ const getPeriodicLevelAmount = async (id) => {
     //VWA
     let res = await response.json();
 
-    if (res) {
+    if (res?.status === RESPONSE_STATUS.SUCCESS) {
       return res;
     } else {
       console.log('error: ', res);
@@ -31,22 +31,19 @@ const getPeriodicLevelAmount = async (id) => {
   }
 };
 
-async function PeriodicLevelCashback({ id }) {
-  const data = await getPeriodicLevelAmount(id);
+async function LoyaltyPoints({ id }) {
+  const data = await getLoyaltyAmount(id);
 
   return (
     <div>
-      <Header
-        amount={data?.total_periodic_cashback_amount}
-        heading={'Periodic Cashback'}
-      />
+      <Header heading={'Loyalty Amount'} amount={data?.loyalty_amount} />
 
       <div className='mt-10'>
-        <h4 className='mb-4 font-semibold text-2xl'> Periodic Ledger </h4>
-        <PeriodicCashback id={id} />
+        <h4 className='mb-4 font-semibold text-2xl'> Loyalty Ledger </h4>
+        <LoyaltyLedger id={id} />
       </div>
     </div>
   );
 }
 
-export default PeriodicLevelCashback;
+export default LoyaltyPoints;

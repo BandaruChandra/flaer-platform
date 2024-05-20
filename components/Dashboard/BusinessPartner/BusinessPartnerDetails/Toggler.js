@@ -6,15 +6,16 @@ function Toggler({ url, id }) {
   return (
     <div className=''>
       <div
-        className={`flex border justify-center text-sm sm:text-base max-w-fit gap-0 h-10`}
+        className={`flex border justify-center text-sm sm:text-base w-full gap-0 h-12 rounded-lg`}
       >
         {BUSINESS_PARTNER_MENU?.map((item) => {
           return (
-            <div key={item?.id}>
+            <div key={item?.id} className='w-full'>
               <Link href={`${item?.link}?id=${id}`}>
                 <button
-                  className={`px-4 h-full border-r inline-block capitalize lg:px-4 min-w-fit ${
-                    url === item?.link && `bg-darkBlue text-white`
+                  className={` truncate px-2 w-full text-center h-full border-r inline-block capitalize min-w-fit ${
+                    url === item?.link &&
+                    `bg-darkBlue text-white font-semibold `
                   }`}
                 >
                   {item?.name}
