@@ -1,5 +1,7 @@
 import React from 'react';
 import { RESPONSE_STATUS } from '../../../../../helpers/enums';
+import Header from './Header';
+import AccountLedger from './AccountLedger';
 
 const getAccountDetails = async (id) => {
   try {
@@ -32,11 +34,14 @@ const getAccountDetails = async (id) => {
 };
 
 async function AccountDetails({ id }) {
-  const data = await getAccountDetails(id);
+  const accountData = await getAccountDetails(id);
 
-  console.log('data: ', data);
-
-  return <div>AccountDetails</div>;
+  return (
+    <div>
+      <Header data={accountData} />
+      <AccountLedger id={id} />
+    </div>
+  );
 }
 
 export default AccountDetails;

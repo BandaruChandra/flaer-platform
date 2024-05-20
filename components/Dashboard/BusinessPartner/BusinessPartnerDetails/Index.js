@@ -7,7 +7,7 @@ import AccountDetails from './AccountDetails/Index';
 function BusinessPartnerDetails({ url, id }) {
   return (
     <section className='min-h-[80vh] mt-10'>
-      <div className='mt-20'>
+      <div className='mt-20 mb-12'>
         <Toggler url={url} id={id} />
       </div>
 
