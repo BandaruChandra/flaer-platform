@@ -31,7 +31,7 @@ const getOrderLevelAmount = async (id) => {
   }
 };
 
-async function AccountDetails({ id }) {
+async function OrderLevelCashback({ id }) {
   const data = await getOrderLevelAmount(id);
 
   return (
@@ -42,4 +42,4 @@ async function AccountDetails({ id }) {
   );
 }
 
-export default AccountDetails;
+export default OrderLevelCashback;

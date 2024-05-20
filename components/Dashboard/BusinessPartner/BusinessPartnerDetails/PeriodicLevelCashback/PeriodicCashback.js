@@ -2,10 +2,10 @@ import React from 'react';
 import { numberToInr } from '../../../../../helpers/MathHelpers';
 import { RESPONSE_STATUS } from '../../../../../helpers/enums';
 
-const getOrderLevelLedger = async (id) => {
+const getPeriodicLevelLedger = async (id) => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/flaer_platform/v1/platform/listing_site_level_cashbacks?business_partner_id=${id}`,
+      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/flaer_platform/v1/platform/listing_periodic_cashback_amount?business_partner_id=${id}`,
       {
         method: 'GET',
         headers: {
@@ -30,8 +30,8 @@ const getOrderLevelLedger = async (id) => {
   }
 };
 
-const OrderLevelLedger = async ({ id }) => {
-  const data = await getOrderLevelLedger(id);
+const PeriodicLevelLedger = async ({ id }) => {
+  const data = await getPeriodicLevelLedger(id);
 
   return (
     <table className='min-w-full rounded-md  mt-10'>
@@ -113,4 +113,4 @@ const LedgerRow = ({ order_attribute }) => {
   );
 };
 
-export default OrderLevelLedger;
+export default PeriodicLevelLedger;
