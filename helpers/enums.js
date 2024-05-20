@@ -120,7 +120,7 @@ export const DASHBOARD_MENU_LIST = [
 
   {
     name: 'Business Partner',
-    link: DASHBOARD_ROUTES.UPDATE_BUSINESS_PARTNER,
+    link: DASHBOARD_ROUTES.BUSINESS_PARTNER,
     icon: <TbShoppingCartCheck />,
     id: 4,
   },
@@ -213,7 +213,7 @@ export const BUSINESS_PARTNER_MENU = [
   },
   {
     name: 'Order Level Cashback',
-    link: BUSINESS_PARTNER_ROUTES.ORDER_LEVEL_CASHBACK,
+    link: BUSINESS_PARTNER_ROUTES.ORDER_LEVEL_DISCOUNTS,
     id: 5,
   },
 

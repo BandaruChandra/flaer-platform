@@ -35,7 +35,7 @@ async function BusinessPartner() {
 
   return (
     <div>
-      <div className='min-w-full overflow-hidden'>
+      <div className='min-w-full overflow-hidden border rounded-lg'>
         <div className='grid grid-cols-7 capitalise font-medium bg-lightBlue pr-4 h-16 items-center'>
           <div className='pl-4 col-span-1 text-start truncate'>Id</div>
           <div className='pl-4 col-span-1 text-start'>Name</div>
@@ -47,7 +47,13 @@ async function BusinessPartner() {
         </div>
 
         {data?.data?.map((item, ind) => {
-          return <PartnerRow key={ind} data={item} ind={ind} />;
+          return (
+            <PartnerRow
+              key={ind}
+              data={item}
+              lastElement={ind === data?.data?.length - 1}
+            />
+          );
         })}
       </div>
     </div>

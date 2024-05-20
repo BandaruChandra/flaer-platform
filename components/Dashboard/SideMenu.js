@@ -28,6 +28,8 @@ function SideMenu() {
       </div>
 
       {DASHBOARD_MENU_LIST?.map((item, ind) => {
+        console.log('item.link, path: ', item.link, path);
+
         return (
           <div className='w-full' key={ind}>
             <Link href={`${item.link}`}>

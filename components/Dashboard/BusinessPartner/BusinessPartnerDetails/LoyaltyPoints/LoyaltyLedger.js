@@ -22,16 +22,18 @@ const getLoyaltyLedger = async (id) => {
       return res;
     } else {
       console.log('error: ', res);
-      return [];
+      return;
     }
   } catch (error) {
     console.error(error);
-    return [];
+    return;
   }
 };
 
 const LoyaltyLedger = async ({ id }) => {
   const data = await getLoyaltyLedger(id);
+
+  console.log('data: ', data);
 
   return (
     <table className='min-w-full rounded-md'>

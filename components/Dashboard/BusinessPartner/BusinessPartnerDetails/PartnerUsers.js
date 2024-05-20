@@ -51,7 +51,6 @@ async function PartnerUsers({ id }) {
             <PartnerRow
               key={ind}
               data={item}
-              ind={ind}
               lastElement={ind === data?.data?.length - 1}
             />
           );

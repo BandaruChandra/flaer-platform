@@ -22,7 +22,7 @@ function BusinessPartnerDetails({ url, id }) {
           <AccountDetails id={id} />
         ) : url === BUSINESS_PARTNER_ROUTES.SITE_LEVEL_CASHBACK ? (
           <SiteLevelCashback id={id} />
-        ) : url === BUSINESS_PARTNER_ROUTES.ORDER_LEVEL_CASHBACK ? (
+        ) : url === BUSINESS_PARTNER_ROUTES.ORDER_LEVEL_DISCOUNTS ? (
           <OrderLevelCashback id={id} />
         ) : url === BUSINESS_PARTNER_ROUTES.PERIODIC_LEVEL_CASHBACK ? (
           <PeriodicLevelCashback id={id} />
