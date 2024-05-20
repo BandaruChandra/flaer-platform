@@ -5,10 +5,10 @@ function Header({ data }) {
   return (
     <div>
       <div className='font-medium flex items-center gap-3 text-xl'>
-        <p className=''> Acc. Balance : </p>
-        <p className='font-semibold mt-1 text-offGreen'>
+        <p className=''> Site Level Cashback : </p>
+        <p className='font-semibold text-offGreen mt-1'>
           <span className='text-lg'>₹ </span>
-          {numberToInr(data?.account_amount)}
+          {numberToInr(data?.total_site_level_cashback_amount) || 0}
         </p>
       </div>
     </div>

@@ -218,8 +218,8 @@ export const BUSINESS_PARTNER_MENU = [
   },
 
   {
-    name: 'Personal Cashback',
-    link: BUSINESS_PARTNER_ROUTES.PERSONAL_CASHBACK,
+    name: 'Periodic Cashback',
+    link: BUSINESS_PARTNER_ROUTES.PERIODIC_CASHBACK,
     id: 6,
   },
   {

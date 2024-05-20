@@ -3,6 +3,8 @@ import PartnerUsers from './PartnerUsers';
 import { BUSINESS_PARTNER_ROUTES } from '../../../../helpers/routes';
 import Toggler from './Toggler';
 import AccountDetails from './AccountDetails/Index';
+import SiteLevelCashback from './SiteLevelCashback/Index';
+import OrderLevelCashback from './OrderLevelCashback/Index';
 
 function BusinessPartnerDetails({ url, id }) {
   return (
@@ -16,6 +18,10 @@ function BusinessPartnerDetails({ url, id }) {
           <PartnerUsers id={id} />
         ) : url === BUSINESS_PARTNER_ROUTES.ACCOUNT_DETAILS ? (
           <AccountDetails id={id} />
+        ) : url === BUSINESS_PARTNER_ROUTES.SITE_LEVEL_CASHBACK ? (
+          <SiteLevelCashback id={id} />
+        ) : url === BUSINESS_PARTNER_ROUTES.ORDER_LEVEL_CASHBACK ? (
+          <OrderLevelCashback id={id} />
         ) : (
           ''
         )}
