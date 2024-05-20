@@ -6,6 +6,7 @@ import QRCode from 'qrcode';
 import QrImage from './QRImage';
 import Image from 'next/image';
 import Link from 'next/link';
+import { toast } from 'react-toastify';
 
 const ShareQRCode = () => {
   const [imageUrl, setImageUrl] = useState(null);
@@ -20,7 +21,8 @@ const ShareQRCode = () => {
   const generateQR = (e) => {
     e.preventDefault();
 
-    // if (!contact.userName || !contact?.phone || !contact.amount) return;
+    if (!contact.userName || !contact?.phone || !contact.amount)
+      return toast.error('Please fill the details.');
 
     let payment_string = `upi://pay?pa=FLAER@icici&pn=FLAER HOMES PRIVATE LIMITED&tr=EZY202405051641309847&am=${
       contact?.amount || 0
@@ -33,7 +35,7 @@ const ShareQRCode = () => {
     }
   };
 
-  const handleShareQRCode = () => {
+  const handleDownload = () => {
     const qrElement = qrRef.current;
 
     html2canvas(qrElement, {
@@ -45,12 +47,12 @@ const ShareQRCode = () => {
       const url = canvas.toDataURL(imageUrl);
       setShareImgUrl(url);
 
-      // const downloadLink = document.createElement('a');
-      // downloadLink.href = url;
-      // downloadLink.download = 'qr-code.png';
-      // document.body.appendChild(downloadLink);
-      // downloadLink.click();
-      // document.body.removeChild(downloadLink);
+      const downloadLink = document.createElement('a');
+      downloadLink.href = url;
+      downloadLink.download = 'qr-code.png';
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
     });
   };
 
@@ -64,7 +66,7 @@ const ShareQRCode = () => {
   };
 
   return (
-    <form className='lg:p-10 grid place-items-center' onSubmit={generateQR}>
+    <form className='lg:p-10 flex gap-24' onSubmit={generateQR}>
       <div className='w-[300px] mt-10'>
         <input
           className='focus:outline-none w-[100%] h-10 lg:h-14 pl-4 mb-4 border border-borderGray rounded-md'
@@ -87,7 +89,7 @@ const ShareQRCode = () => {
           onChange={handleInputChange}
           minLength={10}
           maxLength={10}
-          // required
+          required
         />
 
         <input
@@ -97,64 +99,61 @@ const ShareQRCode = () => {
           value={contact?.userName}
           onChange={handleInputChange}
           minLength={3}
-          // required
+          required
         />
       </div>
 
-      <div
-        ref={qrRef}
-        style={{ display: 'inline-block', position: 'relative' }}
-        className='min-w-fit grid place-items-center w-[350px] h-[500px] text-center border rounded-lg'
-      >
-        <div className='grid place-items-center mt-6'>
-          <Image
-            src={`https://flaer-website-assets.s3.ap-south-1.amazonaws.com/homepage_assets/logo.svg`}
-            width={183}
-            height={21}
-            alt={'Main Logo'}
-          />
+      <section>
+        <div
+          ref={qrRef}
+          style={{ display: 'inline-block', position: 'relative' }}
+          className='min-w-fit grid place-items-center w-[350px] h-[500px] text-center border rounded-lg'
+        >
+          <div className='grid place-items-center mt-6'>
+            <Image
+              src={`https://flaer-website-assets.s3.ap-south-1.amazonaws.com/homepage_assets/logo.svg`}
+              width={183}
+              height={21}
+              alt={'Main Logo'}
+            />
+          </div>
+          <div className='pt-6 text-center grid place-items-center'>
+            <QrImage imgSrc={imageUrl} />
+          </div>
+          <div className='absolute bottom-4 left-5'>
+            <p className='text-xs text-pGray'>
+              Flaer Homes © Copyright 2024, Inc. All rights reserved
+            </p>
+          </div>
         </div>
-        <div className='pt-6 text-center grid place-items-center'>
-          <QrImage imgSrc={imageUrl} />
-        </div>
-        <div className='absolute bottom-4 left-5'>
-          <p className='text-xs text-pGray'>
-            Flaer Homes © Copyright 2024, Inc. All rights reserved
-          </p>
-        </div>
-      </div>
-
-      <div>
-        <div className='flex gap-10 mt-6 mb-10'>
-          <button
-            className='px-4 py-2 bg-blue-600 text-white rounded-md'
-            type='submit'
-          >
-            Generate QR
-          </button>
-
-          <Link href={shareImgUrl}>
+        <div>
+          <div className='flex gap-10 mt-6 mb-10'>
             <button
               className='px-4 py-2 bg-blue-600 text-white rounded-md'
               type='submit'
             >
+              Generate QR
+            </button>
+
+            <button
+              onClick={handleDownload}
+              className='px-4 py-2 bg-blue-600 text-white rounded-md'
+            >
               Download QR
             </button>
-          </Link>
 
-          {/* <Link
-            href={`https://api.whatsapp.com/send?phone=918977539314&text=${Blob.toString(
-              shareImgUrl
-            )}`}
-          >
-            <button className='px-4 py-2 bg-blue-600 text-white rounded-md'>
-              Share QR Code
-            </button>
-          </Link> */}
+            {/* <Link
+              href={`https://api.whatsapp.com/send?phone=918977539314&img=${shareImgUrl}`}
+            >
+              <p className='px-4 py-2 bg-blue-600 text-white rounded-md'>
+                Share QR Code
+              </p>
+            </Link> */}
+          </div>
+
+          {/* {imageUrl && <Image src={shareImgUrl} alt='QR Code' wid />} */}
         </div>
-
-        {/* {imageUrl && <Image src={shareImgUrl} alt='QR Code' wid />} */}
-      </div>
+      </section>
     </form>
   );
 };

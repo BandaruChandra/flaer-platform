@@ -33,14 +33,14 @@ function SideMenu() {
             <Link href={`${item.link}`}>
               <button
                 className={`${
-                  item.link === path
+                  path.includes(item?.link)
                     ? 'bg-lightBlue text-darkBlue font-medium'
                     : ''
                 }  border-b rounded-lg border-white flex items-center gap-3 pr-4 h-14 min-w-fit w-full hover:text-darkBlue text-base`}
               >
                 <p
                   className={`${
-                    item.link === path ? 'bg-darkBlue' : 'bg-white'
+                    path.includes(item?.link) ? 'bg-darkBlue' : 'bg-white'
                   } h-full w-1`}
                 ></p>
 

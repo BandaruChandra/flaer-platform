@@ -1,6 +1,6 @@
 export const DASHBOARD_ROUTES = {
   ACTIVE_MEMBERSHIPS_LIST: '/dashboard/active-members-list',
-  PARTNERS_AND_PARTNER_USERS_LIST: '/dashboard/partners-and-partner-users',
+  // PARTNER_USERS_LIST: '/dashboard/partner-users',
   LEDGERS: '/dashboard/ledgers',
   ACCOUNT_RECHARGE: '/dashboard/account-recharge',
   ORDER_LEVEL_DISCOUNTS: '/dashboard/order-level-discounts',
@@ -8,4 +8,15 @@ export const DASHBOARD_ROUTES = {
   PROJECT_AND_SITE: '/dashboard/project-and-site',
   UPDATE_BUSINESS_PARTNER: '/dashboard/business-partner',
   LOGOUT: '/dashboard/logout',
+};
+
+export const BUSINESS_PARTNER_ROUTES = {
+  USERS_LIST: '/dashboard/business_partner/users-list',
+  ACCOUNT_DETAILS: '/dashboard/business_partner/account-details',
+  SITE_LEVEL_CASHBACK: '/dashboard/business_partner/site-level-cashback',
+  ORDER_LEVEL_CASHBACK: '/dashboard/business_partner/order-level-cashback',
+  PERSONAL_CASHBACK: '/dashboard/business_partner/personal-cashback',
+  LOYALTY_POINTS: '/dashboard/business_partner/loyalty-points',
+  ORDERS: '/dashboard/business_partner/orders',
+  QUOTATION: '/dashboard/business_partner/quotation',
 };

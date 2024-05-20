@@ -1,0 +1,98 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "business_partner": {
+        "id": 2,
+        "name": null,
+        "email": null,
+        "phone_number": "8667331699",
+        "role": null
+      },
+      "business_partner_users": []
+    },
+    {
+      "business_partner": {
+        "id": 3,
+        "name": null,
+        "email": null,
+        "phone_number": "9985120900",
+        "role": null
+      },
+      "business_partner_users": []
+    },
+    {
+      "business_partner": {
+        "id": 1,
+        "name": null,
+        "email": null,
+        "phone_number": "7093620019",
+        "role": 0
+      },
+      "business_partner_users": []
+    },
+    {
+      "business_partner": {
+        "id": 4,
+        "name": null,
+        "email": null,
+        "phone_number": "8977539314",
+        "role": null
+      },
+      "business_partner_users": [
+        {
+          "id": 8,
+          "name": "bharath",
+          "email": "bharath@gmail.com",
+          "phone_number": "2334567823",
+          "role": null,
+          "business_partner_id": 4
+        },
+        {
+          "id": 9,
+          "name": "venky",
+          "email": "venky@gmail.com",
+          "phone_number": "1334567823",
+          "role": null,
+          "business_partner_id": 4
+        },
+        {
+          "id": 10,
+          "name": "venky1",
+          "email": "venky1@gmail.com",
+          "phone_number": "2333556723",
+          "role": null,
+          "business_partner_id": 4
+        },
+        {
+          "id": 6,
+          "name": "John Doe",
+          "email": "john@example.com",
+          "phone_number": "1234567890",
+          "role": null,
+          "business_partner_id": 4
+        },
+        {
+          "id": 7,
+          "name": "ratan",
+          "email": "ratan123@gmail.com",
+          "phone_number": "1234567823",
+          "role": null,
+          "business_partner_id": 4
+        }
+      ]
+    },
+    {
+      "business_partner": {
+        "id": 5,
+        "name": null,
+        "email": null,
+        "phone_number": "9392988014",
+        "role": null
+      },
+      "business_partner_users": []
+    }
+  ],
+  "meta": {},
+  "errors": []
+}

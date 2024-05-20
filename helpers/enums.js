@@ -8,7 +8,7 @@ import { RiWallet3Line } from 'react-icons/ri';
 import { PiBankDuotone } from 'react-icons/pi';
 import { BiQrScan } from 'react-icons/bi';
 import { TbShoppingCartCheck } from 'react-icons/tb';
-import { DASHBOARD_ROUTES } from './routes';
+import { BUSINESS_PARTNER_ROUTES, DASHBOARD_ROUTES } from './routes';
 
 export const S3_BASE_URL =
   'https://flaer-website-assets.s3.ap-south-1.amazonaws.com';
@@ -104,12 +104,12 @@ export const DASHBOARD_MENU_LIST = [
     id: 1,
   },
 
-  {
-    name: 'Partner & Partner Users',
-    link: DASHBOARD_ROUTES.PARTNERS_AND_PARTNER_USERS_LIST,
-    icon: <HiOutlineBanknotes />,
-    id: 2,
-  },
+  // {
+  //   name: 'Partner Users',
+  //   link: DASHBOARD_ROUTES.PARTNER_USERS_LIST,
+  //   icon: <HiOutlineBanknotes />,
+  //   id: 2,
+  // },
 
   {
     name: 'Sharable QR',
@@ -190,5 +190,51 @@ export const PAYMENT_METHODS = [
     title: 'Bank Transfer',
     icon: <PiBankDuotone size={28} />,
     scrollId: '#bank_transfer',
+  },
+];
+
+export const BUSINESS_PARTNER_MENU = [
+  {
+    name: 'Users',
+    link: BUSINESS_PARTNER_ROUTES.USERS_LIST,
+    id: 1,
+  },
+
+  {
+    name: ' Account Details',
+    link: BUSINESS_PARTNER_ROUTES.ACCOUNT_DETAILS,
+    id: 2,
+  },
+
+  {
+    name: 'Site Level Cashback',
+    link: BUSINESS_PARTNER_ROUTES.SITE_LEVEL_CASHBACK,
+    id: 4,
+  },
+  {
+    name: 'Order Level Cashback',
+    link: BUSINESS_PARTNER_ROUTES.ORDER_LEVEL_CASHBACK,
+    id: 5,
+  },
+
+  {
+    name: 'Personal Cashback',
+    link: BUSINESS_PARTNER_ROUTES.PERSONAL_CASHBACK,
+    id: 6,
+  },
+  {
+    name: 'Loyalty Points',
+    link: BUSINESS_PARTNER_ROUTES.LOYALTY_POINTS,
+    id: 7,
+  },
+  {
+    name: 'Orders',
+    link: BUSINESS_PARTNER_ROUTES.ORDERS,
+    id: 8,
+  },
+  {
+    name: 'Quotation',
+    link: BUSINESS_PARTNER_ROUTES.QUOTATION,
+    id: 9,
   },
 ];

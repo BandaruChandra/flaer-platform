@@ -1,0 +1,63 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "id": 2,
+      "flat_number": "Flat 201",
+      "block": "B",
+      "floor_number": 2,
+      "site_type": "3 BHK",
+      "no_of_flat": 150,
+      "site_size": "1500 sqft",
+      "address1": "nankramguda",
+      "address2": "starhospita",
+      "city": "rangareddy",
+      "pin_code": null
+    },
+    {
+      "id": 1,
+      "flat_number": "Flat 101",
+      "block": "A",
+      "floor_number": 1,
+      "site_type": "2 BHK",
+      "no_of_flat": 100,
+      "site_size": "1200 sqft",
+      "address1": "nankramguda",
+      "address2": "starhospital",
+      "city": "rangareddy",
+      "pin_code": null
+    },
+    {
+      "id": 4,
+      "flat_number": "312",
+      "block": "g-block",
+      "floor_number": 34,
+      "site_type": "complex_abc",
+      "no_of_flat": 50,
+      "site_size": "5000 sft",
+      "address1": null,
+      "address2": null,
+      "city": null,
+      "pin_code": null
+    },
+    {
+      "id": 3,
+      "flat_number": "312",
+      "block": "g-block",
+      "floor_number": 34,
+      "site_type": "complex_abc",
+      "no_of_flat": 50,
+      "site_size": "5000 sft",
+      "address1": "banjarahils,gandhistatue",
+      "address2": "mankionda",
+      "city": "Hyderabad",
+      "pin_code": 500004
+    }
+  ],
+  "meta": {
+    "current_page": 0,
+    "total_pages": 1,
+    "total_data_count": 4
+  },
+  "errors": []
+}
