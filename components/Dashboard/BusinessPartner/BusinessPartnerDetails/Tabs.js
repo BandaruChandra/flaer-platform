@@ -2,18 +2,20 @@ import Link from 'next/link';
 import React from 'react';
 import { BUSINESS_PARTNER_MENU } from '../../../../helpers/enums';
 
-function Toggler({ url, id }) {
+function Tabs({ url, id }) {
   return (
     <div
-      className={`flex border-b-gray-400 bg-lightBlue justify-center text-sm sm:text-base w-full gap-0 h-14 shadow-md overflow-hidden`}
+      className={`flex gap-2 justify-center text-sm sm:text-base w-full h-14 overflow-hidden`}
     >
       {BUSINESS_PARTNER_MENU?.map((item) => {
         return (
           <div key={item?.id} className='w-full'>
             <Link href={`${item?.link}?id=${id}`}>
               <button
-                className={` truncate px-2 w-full text-center h-full border-r border-r-gray-400 inline-block capitalize min-w-fit ${
-                  url === item?.link && `bg-darkBlue text-white font-semibold`
+                className={`border border-gray-300 truncate px-2 w-full text-center h-full inline-block capitalize min-w-fit rounded-t-lg ${
+                  url === item?.link
+                    ? `bg-darkBlue text-white font-semibold`
+                    : 'bg-lightBlue'
                 }`}
               >
                 {item?.name}
@@ -26,4 +28,4 @@ function Toggler({ url, id }) {
   );
 }
 
-export default Toggler;
+export default Tabs;

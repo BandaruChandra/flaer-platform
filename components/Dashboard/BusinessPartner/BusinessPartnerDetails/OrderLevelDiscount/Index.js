@@ -41,7 +41,7 @@ async function OrderLevelDiscount({ id }) {
         amount={data?.total_order_level_discounts}
       />
 
-      <div className='mt-6'>
+      <div className='mt-2'>
         <h4 className='mb-4 font-semibold text-2xl'> Order Level Ledger </h4>
         <OrderLevelLedger id={id} />
       </div>

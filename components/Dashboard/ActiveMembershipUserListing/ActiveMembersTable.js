@@ -1,47 +1,127 @@
-const ActiveMembershipTable = ({ data }) => {
-  return (
-    <table className='min-w-full overflow-hidden'>
-      <thead className='capitalise font-normal bg-lightBlue pr-4 h-16 '>
-        <tr>
-          <th scope='col' className='font-medium pl-4 text-start truncate'>
-            ID
-          </th>
-          <th scope='col' className='font-medium pl-4 text-start'>
-            Name
-          </th>
-          <th scope='col' className='font-medium pl-4 text-start'>
-            Phone Number
-          </th>
+'use client';
+import { useEffect, useState } from 'react';
+import Fuse from 'fuse.js';
+import { LuSearch } from 'react-icons/lu';
 
-          <th scope='col' className='font-medium pl-4 text-start'>
-            Email
-          </th>
-          <th scope='col' className='font-medium pl-4 text-start'>
-            Memb. Type
-          </th>
-          <th scope='col' className='font-medium pl-4 text-start'>
-            Memb. Code
-          </th>
-          <th scope='col' className='font-medium pl-4 text-start'>
-            Memb. Cycle
-          </th>
-          <th scope='col' className='font-medium pl-4 text-start'>
-            Total Memb. Discount
-          </th>
-          <th scope='col' className='font-medium pl-4 text-start'>
-            Start Date
-          </th>
-          <th scope='col' className='font-medium pl-4 text-start'>
-            End Date
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        {data?.map((item) => {
-          return <RowContainer key={item.id} item={item} />;
-        })}
-      </tbody>
-    </table>
+const ActiveMembershipTable = ({ data }) => {
+  const [filteredData, setFilteredData] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [fuseData, setFuseData] = useState([]);
+
+  const optionsFuse = {
+    includeScore: false,
+    keys: [
+      'business_partner.name',
+      'business_partner.phone_number',
+      'business_partner.email',
+    ],
+  };
+
+  const fuse = new Fuse(fuseData, optionsFuse);
+
+  useEffect(() => {
+    setFilteredData(data);
+  }, [data]);
+
+  useEffect(() => {
+    if (data) {
+      setFilteredData(data);
+      setFuseData(data);
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data]);
+
+  useEffect(() => {
+    if (!data?.length) return;
+
+    let results = [];
+    if (searchQuery?.length !== 0) {
+      results = fuse.search(searchQuery);
+      results = results.map((item) => item.item);
+
+      // results = filterData(results);
+    } else {
+      results = data;
+    }
+
+    if (results?.length) {
+      setFilteredData([...results]);
+    } else {
+      setFilteredData([]);
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchQuery, data, fuseData]);
+
+  const handleInputChange = (e) => {
+    let value = '';
+    if (e.target.value) {
+      value = e.target.value;
+    }
+    setSearchQuery(value);
+  };
+
+  return (
+    <>
+      <div className='pb-0 max-w-sm mb-10 relative'>
+        <input
+          className='focus:outline-none w-full h-12 px-4 border border-borderGray rounded'
+          placeholder={' Search Partners'}
+          type={'text'}
+          name={'search'}
+          value={searchQuery || ''}
+          onChange={handleInputChange}
+        />
+
+        <p className='absolute right-2 top-3.5 font-semibold '>
+          <LuSearch size={24} />
+        </p>
+      </div>
+
+      <table className='min-w-full border rounded-md'>
+        <thead className='capitalise font-normal bg-lightBlue pr-4 h-16 '>
+          <tr>
+            <th scope='col' className='font-medium pl-4 text-start truncate'>
+              ID
+            </th>
+            <th scope='col' className='font-medium pl-4 text-start'>
+              Name
+            </th>
+            <th scope='col' className='font-medium pl-4 text-start'>
+              Phone Number
+            </th>
+
+            <th scope='col' className='font-medium pl-4 text-start'>
+              Email
+            </th>
+            <th scope='col' className='font-medium pl-4 text-start'>
+              Memb. Type
+            </th>
+            <th scope='col' className='font-medium pl-4 text-start'>
+              Memb. Code
+            </th>
+            <th scope='col' className='font-medium pl-4 text-start'>
+              Memb. Cycle
+            </th>
+            <th scope='col' className='font-medium pl-4 text-start'>
+              Total Memb. Discount
+            </th>
+            <th scope='col' className='font-medium pl-4 text-start'>
+              Start Date
+            </th>
+            <th scope='col' className='font-medium pl-4 text-start'>
+              End Date
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredData?.map((item) => {
+            return <RowContainer key={item.id} item={item} />;
+          })}
+        </tbody>
+      </table>
+    </>
   );
 };
 

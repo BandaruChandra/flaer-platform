@@ -40,7 +40,7 @@ async function SiteLevelCashback({ id }) {
         heading={'Site Level Cashback'}
         amount={data?.total_site_level_cashback_amount}
       />
-      <div className='mt-6'>
+      <div className='mt-2'>
         <h4 className='mb-4 font-semibold text-2xl'> Site Level Ledger </h4>
         <SiteLevelLedger id={id} />
       </div>

@@ -16,7 +16,7 @@ const ProjectTable = ({ data }) => {
       <button
         className={` ${
           currProject ? 'block' : 'hidden'
-        } border mb-10 border-darkBlue text-darkBlue hover:bg-darkBlue hover:scale-105 hover:text-white rounded-full p-2 transition-all duration-all flex justify-center items-center gap-2 mt-6`}
+        } border mb-4 border-darkBlue text-darkBlue hover:bg-darkBlue hover:scale-105 hover:text-white rounded-full p-2 transition-all duration-all flex justify-center items-center gap-2 mt-6`}
         onClick={() => {
           setCurrProject();
         }}

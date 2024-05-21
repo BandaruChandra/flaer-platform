@@ -38,7 +38,7 @@ async function AccountDetails({ id }) {
     <div>
       <Header heading={'Account Balance'} amount={data?.account_amount} />
 
-      <div className='mt-6'>
+      <div className='mt-2'>
         <h4 className='mb-4 font-semibold text-2xl'> Account Ledger </h4>
         <AccountLedger id={id} />
       </div>

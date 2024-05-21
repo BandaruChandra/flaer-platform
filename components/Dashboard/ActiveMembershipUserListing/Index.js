@@ -38,9 +38,7 @@ async function ActiveMembershipList() {
 
   return (
     <div className='w-full'>
-      <div className='border rounded-md shadow-lg shadow-light-blue mb-20'>
-        <ActiveMembershipTable data={data?.data} />
-      </div>
+      <ActiveMembershipTable data={data?.data} />
 
       <Pagination
         pagesList={data?.meta?.total_pages}

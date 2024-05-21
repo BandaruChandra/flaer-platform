@@ -1,7 +1,7 @@
 import React from 'react';
 import PartnerUsers from './PartnerUsers';
 import { BUSINESS_PARTNER_ROUTES } from '../../../../helpers/routes';
-import Toggler from './Toggler';
+import Tabs from './Tabs';
 import AccountDetails from './AccountDetails/Index';
 import SiteLevelCashback from './SiteLevelCashback/Index';
 import OrderLevelDiscount from './OrderLevelDiscount/Index';
@@ -11,12 +11,16 @@ import MembershipDiscount from './MembershipDiscount/Index';
 
 function BusinessPartnerDetails({ url, id }) {
   return (
-    <section className='min-h-[80vh] mt-10 mb-40 border rounded-md shadow-md '>
-      <div className='mb-12'>
-        <Toggler url={url} id={id} />
+    <section className='mt-10 mb-40'>
+      <h4 className='font-semibold text-2xl text-center mb-10 mt-10 '>
+        Business Partner
+      </h4>
+
+      <div>
+        <Tabs url={url} id={id} />
       </div>
 
-      <div className='px-4'>
+      <div className='px-4 border rounded-b-md min-h-[80vh] shadow-md'>
         {url === BUSINESS_PARTNER_ROUTES.USERS_LIST ? (
           <PartnerUsers id={id} />
         ) : url === BUSINESS_PARTNER_ROUTES.ACCOUNT_DETAILS ? (

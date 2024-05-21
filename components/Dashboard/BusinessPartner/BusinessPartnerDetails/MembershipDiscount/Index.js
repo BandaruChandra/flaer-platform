@@ -40,7 +40,7 @@ async function MembershipDiscount({ id }) {
         amount={data?.total_membership_discount_amount}
       />
 
-      <div className='mt-6'>
+      <div className='mt-2'>
         <h4 className='mb-4 font-semibold text-2xl'> Membership Ledger </h4>
         <MembershipLedger id={id} />
       </div>

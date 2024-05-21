@@ -66,7 +66,7 @@ const BusinessPartnersList = ({ data }) => {
         <input
           className='focus:outline-none w-full h-12 px-4 border border-borderGray rounded'
           placeholder={' Search Partners'}
-          type={'search'}
+          type={'text'}
           name={'search'}
           value={searchQuery || ''}
           onChange={handleInputChange}
