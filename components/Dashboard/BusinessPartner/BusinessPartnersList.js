@@ -78,7 +78,7 @@ const BusinessPartnersList = ({ data }) => {
       </div>
 
       <div className='min-w-full overflow-hidden border rounded-lg'>
-        <div className='grid grid-cols-7 capitalise font-medium bg-lightBlue pr-4 h-16 items-center'>
+        <div className='grid grid-cols-7 capitalise font-medium bg-lightBlue pr-4 h-14 items-center'>
           <div className='pl-4 col-span-1 text-start truncate'>Id</div>
           <div className='pl-4 col-span-1 text-start'>Name</div>
           <div className='pl-4 col-span-1 text-start'>Email</div>

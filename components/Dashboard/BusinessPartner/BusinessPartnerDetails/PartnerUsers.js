@@ -1,6 +1,5 @@
 import React from 'react';
 import { RESPONSE_STATUS } from '../../../../helpers/enums';
-import Link from 'next/link';
 
 const getBusinessPartnerUsers = async () => {
   try {
@@ -34,29 +33,34 @@ async function PartnerUsers({ id }) {
   const data = await getBusinessPartnerUsers(id);
 
   return (
-    <div className='mt-12 border rounded-md'>
-      <div className='min-w-full overflow-hidden'>
-        <div className='grid grid-cols-7 capitalise font-medium bg-lightBlue pr-4 min-h-14 items-center'>
-          <div className='pl-4 col-span-1 text-start truncate'>Id</div>
-          <div className='pl-4 col-span-1 text-start'>Name</div>
-          <div className='pl-4 col-span-1 text-start'>Email</div>
-          <div className='pl-4 col-span-1 text-start'>Phone Number</div>
-          <div className='pl-4 col-span-1 text-start'>Is Verified</div>
-          <div className='pl-4 col-span-1 text-start'>Is Active</div>
-          <div className='pl-4 col-span-1 text-start'>Roles</div>
-        </div>
+    <section>
+      <h4 className='mb-4 mt-12 font-semibold text-2xl'>
+        Business Partner Users
+      </h4>
+      <div className='border rounded-md'>
+        <div className='min-w-full overflow-hidden'>
+          <div className='grid grid-cols-7 capitalise font-medium bg-lightBlue pr-4 min-h-14 items-center'>
+            <div className='pl-4 col-span-1 text-start truncate'>Id</div>
+            <div className='pl-4 col-span-1 text-start'>Name</div>
+            <div className='pl-4 col-span-1 text-start'>Email</div>
+            <div className='pl-4 col-span-1 text-start'>Phone Number</div>
+            <div className='pl-4 col-span-1 text-start'>Is Verified</div>
+            <div className='pl-4 col-span-1 text-start'>Is Active</div>
+            <div className='pl-4 col-span-1 text-start'>Roles</div>
+          </div>
 
-        {data?.data?.map((item, ind) => {
-          return (
-            <PartnerRow
-              key={ind}
-              data={item}
-              lastElement={ind === data?.data?.length - 1}
-            />
-          );
-        })}
+          {data?.data?.map((item, ind) => {
+            return (
+              <PartnerRow
+                key={ind}
+                data={item}
+                lastElement={ind === data?.data?.length - 1}
+              />
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 

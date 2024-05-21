@@ -31,17 +31,17 @@ const getOrderLevelAmount = async (id) => {
   }
 };
 
-async function OrderLevelCashback({ id }) {
+async function OrderLevelDiscount({ id }) {
   const data = await getOrderLevelAmount(id);
 
   return (
     <div>
       <Header
-        heading={'Order Level Cashback'}
+        heading={'Order Level Discount'}
         amount={data?.total_order_level_discounts}
       />
 
-      <div className='mt-10'>
+      <div className='mt-6'>
         <h4 className='mb-4 font-semibold text-2xl'> Order Level Ledger </h4>
         <OrderLevelLedger id={id} />
       </div>
@@ -49,4 +49,4 @@ async function OrderLevelCashback({ id }) {
   );
 }
 
-export default OrderLevelCashback;
+export default OrderLevelDiscount;

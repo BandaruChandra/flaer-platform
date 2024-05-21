@@ -41,7 +41,7 @@ async function PeriodicLevelCashback({ id }) {
         heading={'Periodic Cashback'}
       />
 
-      <div className='mt-10'>
+      <div className='mt-6'>
         <h4 className='mb-4 font-semibold text-2xl'> Periodic Ledger </h4>
         <PeriodicCashback id={id} />
       </div>

@@ -177,23 +177,6 @@ export const DELIVERY_STATUS_OPTIONS = Object.values(DELIVERY_STATUS)?.map(
   }
 );
 
-// PAYMENT METHODS.
-
-export const PAYMENT_METHODS = [
-  {
-    id: 2,
-    title: 'Pay Using UPI',
-    icon: <BiQrScan size={24} />,
-    scrollId: '#upi',
-  },
-  {
-    id: 1,
-    title: 'Bank Transfer',
-    icon: <PiBankDuotone size={28} />,
-    scrollId: '#bank_transfer',
-  },
-];
-
 export const BUSINESS_PARTNER_MENU = [
   {
     name: 'Users',
@@ -214,28 +197,33 @@ export const BUSINESS_PARTNER_MENU = [
   },
   {
     name: 'Order Level Discount',
-    link: BUSINESS_PARTNER_ROUTES.ORDER_LEVEL_DISCOUNTS,
+    link: BUSINESS_PARTNER_ROUTES.ORDER_LEVEL_DISCOUNT,
     id: 5,
+  },
+  {
+    name: 'Membership Discount',
+    link: BUSINESS_PARTNER_ROUTES.MEMBERSHIP_DISCOUNT,
+    id: 6,
   },
 
   {
     name: 'Periodic Cashback',
     link: BUSINESS_PARTNER_ROUTES.PERIODIC_LEVEL_CASHBACK,
-    id: 6,
+    id: 7,
   },
   {
     name: 'Loyalty Points',
     link: BUSINESS_PARTNER_ROUTES.LOYALTY_POINTS,
-    id: 7,
+    id: 8,
   },
   {
     name: 'Orders',
     link: BUSINESS_PARTNER_ROUTES.ORDERS,
-    id: 8,
+    id: 9,
   },
   {
     name: 'Quotation',
     link: BUSINESS_PARTNER_ROUTES.QUOTATION,
-    id: 9,
+    id: 10,
   },
 ];

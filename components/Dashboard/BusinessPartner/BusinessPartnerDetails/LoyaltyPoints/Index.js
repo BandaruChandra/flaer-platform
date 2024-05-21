@@ -37,7 +37,7 @@ async function LoyaltyPoints({ id }) {
   return (
     <div>
       <Header heading={'Loyalty Amount'} amount={data?.loyalty_amount} />
-      <div className='mt-10'>
+      <div className='mt-6'>
         <h4 className='mb-4 font-semibold text-2xl'> Loyalty Ledger </h4>
         <LoyaltyLedger id={id} />
       </div>
