@@ -15,9 +15,9 @@ function DashboardIndex({ url }) {
         <ActiveMembershipList />
       ) : url === DASHBOARD_ROUTES.ACCOUNT_RECHARGE ? (
         <AccountRecharge />
-      ) : url === DASHBOARD_ROUTES.BUSINESS_PARTNER ? (
+      ) : url === DASHBOARD_ROUTES.BUSINESS_PARTNERS ? (
         <BusinessPartner />
-      ) : url === DASHBOARD_ROUTES.PROJECT_AND_SITE ? (
+      ) : url === DASHBOARD_ROUTES.PROJECTS_AND_SITES ? (
         <ProjectAndSite />
       ) : url === DASHBOARD_ROUTES.LOGOUT ? (
         <Logout />

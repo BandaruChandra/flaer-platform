@@ -6,7 +6,7 @@ import project_data from '../../../data/project_listing.json';
 import { DASHBOARD_ROUTES } from '../../../helpers/routes';
 
 function ProjectAndSite() {
-  let href = `${DASHBOARD_ROUTES.PROJECT_AND_SITE}?`;
+  let href = `${DASHBOARD_ROUTES.PROJECTS_AND_SITES}?`;
 
   return (
     <div className='w-full'>

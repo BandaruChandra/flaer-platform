@@ -3,11 +3,11 @@ import {
   MdLogout,
   MdOutlineShoppingBag,
 } from 'react-icons/md';
-import { HiOutlineBanknotes } from 'react-icons/hi2';
-import { RiWallet3Line } from 'react-icons/ri';
+import { IoPeople, IoPerson } from 'react-icons/io5';
+import { GiEarthAsiaOceania } from 'react-icons/gi';
+import { HiOutlineQrCode } from 'react-icons/hi2';
 import { PiBankDuotone } from 'react-icons/pi';
 import { BiQrScan } from 'react-icons/bi';
-import { TbShoppingCartCheck } from 'react-icons/tb';
 import { BUSINESS_PARTNER_ROUTES, DASHBOARD_ROUTES } from './routes';
 
 export const S3_BASE_URL =
@@ -100,7 +100,7 @@ export const DASHBOARD_MENU_LIST = [
   {
     name: 'Active Members',
     link: DASHBOARD_ROUTES.ACTIVE_MEMBERSHIPS_LIST,
-    icon: <RiWallet3Line />,
+    icon: <IoPeople />,
     id: 1,
   },
 
@@ -112,42 +112,43 @@ export const DASHBOARD_MENU_LIST = [
   // },
 
   {
+    name: 'Business Partners',
+    link: DASHBOARD_ROUTES.BUSINESS_PARTNERS,
+    icon: <IoPerson />,
+    id: 4,
+  },
+
+  {
     name: 'Sharable QR',
     link: DASHBOARD_ROUTES.ACCOUNT_RECHARGE,
-    icon: <MdOutlinePersonOutline />,
+    icon: <HiOutlineQrCode />,
     id: 3,
   },
 
-  {
-    name: 'Business Partner',
-    link: DASHBOARD_ROUTES.BUSINESS_PARTNER,
-    icon: <TbShoppingCartCheck />,
-    id: 4,
-  },
-  {
-    name: 'Order Level Discount',
-    link: DASHBOARD_ROUTES.ORDER_LEVEL_DISCOUNTS,
-    icon: <TbShoppingCartCheck />,
-    id: 5,
-  },
-  {
-    name: 'Ledgers',
-    link: DASHBOARD_ROUTES.LEDGERS,
-    icon: <TbShoppingCartCheck />,
-    id: 6,
-  },
+  // {
+  //   name: 'Order Level Discount',
+  //   link: DASHBOARD_ROUTES.ORDER_LEVEL_DISCOUNTS,
+  //   icon: <TbShoppingCartCheck />,
+  //   id: 5,
+  // },
+  // {
+  //   name: 'Ledgers',
+  //   link: DASHBOARD_ROUTES.LEDGERS,
+  //   icon: <TbShoppingCartCheck />,
+  //   id: 6,
+  // },
+
+  // {
+  //   name: 'Cashbacks Levels',
+  //   link: DASHBOARD_ROUTES.CASHBACKS_LEVELS,
+  //   icon: <TbShoppingCartCheck />,
+  //   id: 7,
+  // },
 
   {
-    name: 'Cashbacks Levels',
-    link: DASHBOARD_ROUTES.CASHBACKS_LEVELS,
-    icon: <TbShoppingCartCheck />,
-    id: 7,
-  },
-
-  {
-    name: 'Project and Site',
-    link: DASHBOARD_ROUTES.PROJECT_AND_SITE,
-    icon: <MdOutlineShoppingBag />,
+    name: 'Projects and Sites',
+    link: DASHBOARD_ROUTES.PROJECTS_AND_SITES,
+    icon: <GiEarthAsiaOceania />,
     id: 8,
   },
 
@@ -212,7 +213,7 @@ export const BUSINESS_PARTNER_MENU = [
     id: 4,
   },
   {
-    name: 'Order Level Cashback',
+    name: 'Order Level Discount',
     link: BUSINESS_PARTNER_ROUTES.ORDER_LEVEL_DISCOUNTS,
     id: 5,
   },

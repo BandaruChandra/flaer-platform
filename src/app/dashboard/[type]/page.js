@@ -9,7 +9,7 @@ function page({ params }) {
   return (
     <div>
       <h1 className='text-center text-3xl mt-10 font-medium text-darkBlue2'>
-        {currRoute[0]?.name}
+        {currRoute?.[0]?.name}
       </h1>
       <DashboardIndex url={url} />
     </div>

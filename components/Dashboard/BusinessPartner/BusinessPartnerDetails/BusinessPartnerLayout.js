@@ -10,7 +10,7 @@ import LoyaltyPoints from './LoyaltyPoints/Index';
 
 function BusinessPartnerDetails({ url, id }) {
   return (
-    <section className='min-h-[80vh] mt-10 mb-40'>
+    <section className='min-h-[80vh] mt-10 mb-40 border rounded-md px-4 shadow-md '>
       <div className='mt-20 mb-12'>
         <Toggler url={url} id={id} />
       </div>

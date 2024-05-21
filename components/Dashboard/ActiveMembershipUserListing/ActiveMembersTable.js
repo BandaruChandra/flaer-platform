@@ -37,7 +37,7 @@ const ActiveMembershipTable = ({ data }) => {
         </tr>
       </thead>
       <tbody>
-        {data?.data?.map((item) => {
+        {data?.map((item) => {
           return <RowContainer key={item.id} item={item} />;
         })}
       </tbody>
