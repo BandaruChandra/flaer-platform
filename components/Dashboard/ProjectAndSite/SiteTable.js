@@ -1,4 +1,4 @@
-const SiteTable = ({ data }) => {
+const SiteTable = ({ currProject }) => {
   return (
     <table className='min-w-full overflow-hidden border rounded-md shadow-lg shadow-light-blue mb-20 '>
       <thead className='capitalise font-normal bg-lightBlue pr-4 h-16 '>
@@ -43,7 +43,7 @@ const SiteTable = ({ data }) => {
         </tr>
       </thead>
       <tbody>
-        {data?.data?.map((item) => {
+        {currProject?.sites?.map((item) => {
           return <RowContainer key={item.id} item={item} />;
         })}
       </tbody>
