@@ -1,4 +1,4 @@
-const OrderLineItemsTable = ({ data }) => {
+const CartLineItemsTable = ({ data }) => {
   return (
     <table className='min-w-full overflow-hidden border rounded-md shadow-lg shadow-light-blue mb-10'>
       <thead className='capitalise font-normal bg-lightBlue pr-4 h-16 '>
@@ -81,4 +81,4 @@ const RowContainer = ({ item }) => {
   );
 };
 
-export default OrderLineItemsTable;
+export default CartLineItemsTable;

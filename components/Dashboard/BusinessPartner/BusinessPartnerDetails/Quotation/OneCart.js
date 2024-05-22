@@ -1,27 +1,27 @@
 import React from 'react';
-import OrderLineItemsTable from './OrderLineItemsTable';
+import CartLineItemsTable from './CartLineItemsTable';
 
-function OneOrder({ currOrder }) {
+function OneCart({ currCart }) {
   return (
     <div>
       <div className='flex gap-20 mb-6'>
         <BillingDetails
-          business_partner_details={currOrder?.business_partner_details}
-          address={currOrder?.bill_address}
+          business_partner_details={currCart?.business_partner_details}
+          address={currCart?.bill_address}
         />
         <ShippingDetails
-          home_owner_details={currOrder?.home_owner_details}
-          address={currOrder?.shipping_address}
+          home_owner_details={currCart?.home_owner_details}
+          address={currCart?.shipping_address}
         />
-        <SiteDetails site_details={currOrder?.site_details} />
+        <SiteDetails site_details={currCart?.site_details} />
       </div>
 
-      <OrderLineItemsTable data={currOrder?.order_line_items} />
+      <CartLineItemsTable data={currCart?.cart_line_items} />
 
       <div className='flex gap-10 mb-20'>
-        <TopLevelData currOrder={currOrder} />
-        <PaymentDetails payment_details={currOrder?.payment_details?.[0]} />
-        <OrderAttributes order_attributes={currOrder?.order_attributes?.[0]} />
+        <TopLevelData currCart={currCart} />
+        {/* <PaymentDetails payment_details={currCart?.payment_details?.[0]} /> */}
+        <CartAttributes cart_attributes={currCart?.cart_attributes?.[0]} />
       </div>
     </div>
   );
@@ -64,6 +64,37 @@ const ShippingDetails = ({ home_owner_details, address }) => {
   );
 };
 
+function TopLevelData({ currCart }) {
+  let notNeeded = [
+    'home_owner_details',
+    'site_details',
+    'business_partner_details',
+    'cart_attributes',
+    'cart_line_items',
+    'payment_details',
+    'shipping_address',
+    'bill_address',
+  ];
+
+  return (
+    <div className='bg-lightBlue rounded-md p-4 max-w-fit'>
+      <h1 className='font-semibold mb-1 border-b-2 border-b-darkBlue2 max-w-fit'>
+        Top Level Data
+      </h1>
+      {Object.keys(currCart)?.map((item, ind) => {
+        if (notNeeded.includes(item)) return;
+
+        return (
+          <div key={ind} className='flex gap-4 font-medium  px-2 py-1.5'>
+            <p className='w-36 capitalize'>{item?.split('_')?.join(' ')}</p>:
+            <p className=''> {currCart?.[item]}</p>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 const SiteDetails = ({ site_details }) => {
   return (
     <div className='bg-lightBlue rounded-md p-4 max-w-fit'>
@@ -85,79 +116,28 @@ const SiteDetails = ({ site_details }) => {
   );
 };
 
-function TopLevelData({ currOrder }) {
-  let notNeeded = [
-    'home_owner_details',
-    'site_details',
-    'business_partner_details',
-    'order_attributes',
-    'order_line_items',
-    'payment_details',
-    'shipping_address',
-    'bill_address',
-  ];
-
-  return (
+const CartAttributes = ({ cart_attributes }) => {
+  return Object.keys(cart_attributes || {})?.length ? (
     <div className='bg-lightBlue rounded-md p-4 max-w-fit'>
       <h1 className='font-semibold mb-1 border-b-2 border-b-darkBlue2 max-w-fit'>
-        Top Level Data
-      </h1>
-      {Object.keys(currOrder)?.map((item, ind) => {
-        if (notNeeded.includes(item)) return;
-
-        return (
-          <div key={ind} className='flex gap-4 font-medium  px-2 py-1.5'>
-            <p className='w-36 capitalize'>{item?.split('_')?.join(' ')}</p>:
-            <p className=''> {currOrder?.[item]}</p>
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
-const PaymentDetails = ({ payment_details }) => {
-  return (
-    <div className='bg-lightBlue rounded-md p-4 max-w-fit'>
-      <h1 className='font-semibold mb-1 border-b-2 border-b-darkBlue2 max-w-fit'>
-        Payment Details
+        Cart Attributes
       </h1>
 
-      {Object.keys(payment_details)?.map((item, ind) => {
+      {Object.keys(cart_attributes)?.map((item, ind) => {
         return (
           <div
             key={ind}
             className='flex gap-4 font-medium even:bg-lightBlue px-2 py-1.5'
           >
             <p className='w-36 capitalize'>{item?.split('_')?.join(' ')}</p>:
-            <p className=''> {payment_details?.[item]}</p>
+            <p className=''> {cart_attributes?.[item]}</p>
           </div>
         );
       })}
     </div>
+  ) : (
+    ''
   );
 };
 
-const OrderAttributes = ({ order_attributes }) => {
-  return (
-    <div className='bg-lightBlue rounded-md p-4 max-w-fit'>
-      <h1 className='font-semibold mb-1 border-b-2 border-b-darkBlue2 max-w-fit'>
-        Order Attributes
-      </h1>
-
-      {Object.keys(order_attributes)?.map((item, ind) => {
-        return (
-          <div
-            key={ind}
-            className='flex gap-4 font-medium even:bg-lightBlue px-2 py-1.5'
-          >
-            <p className='w-36 capitalize'>{item?.split('_')?.join(' ')}</p>:
-            <p className=''> {order_attributes?.[item]}</p>
-          </div>
-        );
-      })}
-    </div>
-  );
-};
-
-export default OneOrder;
+export default OneCart;
