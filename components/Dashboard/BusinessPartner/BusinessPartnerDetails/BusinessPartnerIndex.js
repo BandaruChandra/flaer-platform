@@ -8,6 +8,7 @@ import OrderLevelDiscount from './OrderLevelDiscount/Index';
 import PeriodicLevelCashback from './PeriodicLevelCashback/Index';
 import LoyaltyAccount from './LoyaltyAccount/Index';
 import MembershipDiscount from './MembershipDiscount/Index';
+import Orders from './Orders/Index';
 
 function BusinessPartnerDetails({ url, id }) {
   return (
@@ -35,6 +36,8 @@ function BusinessPartnerDetails({ url, id }) {
           <LoyaltyAccount id={id} />
         ) : url === BUSINESS_PARTNER_ROUTES.MEMBERSHIP_DISCOUNT ? (
           <MembershipDiscount id={id} />
+        ) : url === BUSINESS_PARTNER_ROUTES.ORDERS ? (
+          <Orders id={id} />
         ) : (
           ''
         )}
