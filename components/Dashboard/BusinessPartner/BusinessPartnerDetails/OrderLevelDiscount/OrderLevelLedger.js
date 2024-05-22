@@ -84,13 +84,13 @@ const LedgerRow = ({ order_attribute }) => {
       <td className='py-4 pl-4'>
         <div
           className={`${
-            order_attribute?.attribute_amount === 'credit'
+            order_attribute?.attr_txn_type === 'discount'
               ? 'text-[#338600]'
               : 'text-[#FF0000]'
           } font-medium flex items-center gap-1 `}
         >
           <span className='text-xl'>
-            {order_attribute?.attribute_amount === 'credit' ? '+' : '-'}
+            {order_attribute?.attr_txn_type === 'discount' ? '+' : '-'}
           </span>
           <p className='flex items-center'>
             <span className='text-sm'> ₹ </span>

@@ -10,7 +10,6 @@ const ActivePartnersTable = ({ data }) => {
   const [filteredData, setFilteredData] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [fuseData, setFuseData] = useState([]);
-
   const [membFilter, setMembFilter] = useState([]);
 
   useEffect(() => {
@@ -64,27 +63,27 @@ const ActivePartnersTable = ({ data }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
-  useEffect(() => {
-    if (!data?.length) return;
+  // useEffect(() => {
+  //   if (!data?.length) return;
 
-    let results = [];
-    if (searchQuery?.length !== 0) {
-      results = fuse.search(searchQuery);
-      results = results.map((item) => item.item);
+  //   let results = [];
+  //   if (searchQuery?.length !== 0) {
+  //     results = fuse.search(searchQuery);
+  //     results = results.map((item) => item.item);
 
-      // results = filterData(results);
-    } else {
-      results = data;
-    }
+  //     // results = filterData(results);
+  //   } else {
+  //     results = data;
+  //   }
 
-    if (results?.length) {
-      setFilteredData([...results]);
-    } else {
-      setFilteredData([]);
-    }
+  //   if (results?.length) {
+  //     setFilteredData([...results]);
+  //   } else {
+  //     setFilteredData([]);
+  //   }
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchQuery, data, fuseData]);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [searchQuery, data, fuseData]);
 
   const handleInputChange = (e) => {
     let value = '';
@@ -97,10 +96,10 @@ const ActivePartnersTable = ({ data }) => {
   return (
     <>
       <div className='mb-10 flex justify-between'>
-        <div className='pb-0 max-w-sm relative'>
+        <div className='pb-0 w-96 relative'>
           <input
             className='focus:outline-none w-full h-12 px-4 border border-borderGray rounded'
-            placeholder={' Search Partners'}
+            placeholder={'Search Partners'}
             type={'text'}
             name={'search'}
             value={searchQuery || ''}

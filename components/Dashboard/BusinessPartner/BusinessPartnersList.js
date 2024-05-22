@@ -30,27 +30,27 @@ const BusinessPartnersList = ({ data }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
-  useEffect(() => {
-    if (!data?.length) return;
+  // useEffect(() => {
+  //   if (!data?.length) return;
 
-    let results = [];
-    if (searchQuery?.length !== 0) {
-      results = fuse.search(searchQuery);
-      results = results.map((item) => item.item);
+  //   let results = [];
+  //   if (searchQuery?.length !== 0) {
+  //     results = fuse.search(searchQuery);
+  //     results = results.map((item) => item.item);
 
-      // results = filterData(results);
-    } else {
-      results = data;
-    }
+  //     // results = filterData(results);
+  //   } else {
+  //     results = data;
+  //   }
 
-    if (results?.length) {
-      setFilteredData([...results]);
-    } else {
-      setFilteredData([]);
-    }
+  //   if (results?.length) {
+  //     setFilteredData([...results]);
+  //   } else {
+  //     setFilteredData([]);
+  //   }
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchQuery, data, fuseData]);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [searchQuery, data, fuseData]);
 
   const handleInputChange = (e) => {
     let value = '';
@@ -62,17 +62,17 @@ const BusinessPartnersList = ({ data }) => {
 
   return (
     <div>
-      <div className='pb-0 max-w-sm mb-10 relative '>
+      <div className='pb-0 w-96 mb-10 relative'>
         <input
           className='focus:outline-none w-full h-12 px-4 border border-borderGray rounded'
-          placeholder={' Search Partners'}
+          placeholder={'Search Partners'}
           type={'text'}
           name={'search'}
           value={searchQuery || ''}
           onChange={handleInputChange}
         />
 
-        <p className='absolute right-2 top-3.5 font-semibold '>
+        <p className='absolute right-2 top-3.5 font-semibold'>
           <LuSearch size={24} />
         </p>
       </div>
@@ -140,7 +140,7 @@ const RadioButton = ({ status }) => {
     <div className='w-36'>
       <input
         type={'checkbox'}
-        checked={status}
+        defaultChecked={status}
         className='w-6 h-6 border-2 rounded-lg'
         // onChange={(e) => {
         //     handleOnChange(index, role, e.target.checked);

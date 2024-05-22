@@ -80,14 +80,14 @@ const LedgerRow = ({ item }) => {
       <td className='py-4 pl-4'>
         <div
           className={`${
-            item?.amount === 'credit' ? 'text-[#338600]' : 'text-[#FF0000]'
+            item?.ledger_type === 'credit' ? 'text-[#338600]' : 'text-[#FF0000]'
           } font-medium flex items-center gap-1 `}
         >
           <span className='text-xl'>
-            {item?.amount === 'credit' ? '+' : '-'}
+            {item?.ledger_type === 'credit' ? '+' : '-'}
           </span>
           <p className='flex items-center'>
-            <span className='text-sm'> ₹ </span>
+            <span className='text-sm'> ₹ </span>{' '}
             {numberToInr(item?.amount || 0)}
           </p>
         </div>

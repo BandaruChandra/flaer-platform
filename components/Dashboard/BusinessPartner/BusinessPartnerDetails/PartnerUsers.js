@@ -100,7 +100,7 @@ const RadioButton = ({ status }) => {
     <div className='w-36'>
       <input
         type={'checkbox'}
-        checked={status}
+        defaultChecked={status}
         className='w-6 h-6 border-2 rounded-lg'
       />
     </div>

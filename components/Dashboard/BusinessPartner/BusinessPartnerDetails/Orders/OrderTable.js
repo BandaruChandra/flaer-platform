@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import OneOrder from './OneOrder';
+import { DELIVERY_STATUS } from '../../../../../helpers/enums';
 
 const OrderTable = ({ data }) => {
   const [currOrder, setCurrOrder] = useState();
@@ -26,7 +27,7 @@ const OrderTable = ({ data }) => {
         </p>
       </button>
 
-      <h4 className='mb-4 mt-12 font-semibold text-2xl'>
+      <h4 className='mb-4 mt-6 font-semibold text-2xl'>
         {currOrder ? 'Order Details' : 'Order List'}
       </h4>
 
@@ -131,7 +132,15 @@ const RowContainer = ({ item, handleOnClick }) => {
       </td>
       <td className='pl-4'>{item?.order_line_items?.length}</td>
       <td className='pl-4 max-w-[250px]'>{item?.shipping_address}</td>
-      <td className='pl-4'>{item?.status}</td>
+      <td className='pl-4'>
+        <p
+          className={`${
+            item?.status === DELIVERY_STATUS.DELIVERED ? 'text-offGreen' : ''
+          } w-1/2 capitalize`}
+        >
+          {item?.status}
+        </p>
+      </td>
     </tr>
   );
 };

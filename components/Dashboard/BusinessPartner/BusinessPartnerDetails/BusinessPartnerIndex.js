@@ -13,7 +13,7 @@ import Orders from './Orders/Index';
 function BusinessPartnerDetails({ url, id }) {
   return (
     <section className='mt-10 mb-40'>
-      <h4 className='font-semibold text-4xl text-center mb-10 mt-10 '>
+      <h4 className='font-semibold text-4xl text-center mb-10 mt-10'>
         Business Partner
       </h4>
 

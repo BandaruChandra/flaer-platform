@@ -38,7 +38,7 @@ const AccountLedger = async ({ id }) => {
       <thead className='capitalise font-normal bg-lightBlue'>
         <tr>
           <th scope='col' className='py-3 font-medium pl-4 text-start truncate'>
-            Id
+            Acc. Id
           </th>
           <th scope='col' className='py-3 font-medium pl-4 text-start'>
             Trans. Date
@@ -68,18 +68,18 @@ const AccountLedger = async ({ id }) => {
 
 const LedgerRow = ({ item }) => {
   return (
-    <tr key={item.id} className={`border-b text-gray-700 odd:bg-white`}>
-      <td className='py-4 pl-4 min-w-28'>{item.id}</td>
+    <tr className={`border-b text-gray-700 odd:bg-white`}>
+      <td className='py-4 pl-4 min-w-28'>{item.account_id}</td>
       <td className='py-4 pl-4'>{item?.transaction_date}</td>
 
       <td className='py-4 pl-4'>
         <div
           className={`${
-            item.ledger_type === 'credit' ? 'text-[#338600]' : 'text-[#FF0000]'
-          } font-medium flex items-center gap-1 `}
+            item?.ledger_type === 'credit' ? 'text-[#338600]' : 'text-[#FF0000]'
+          } font-medium flex items-center gap-1`}
         >
           <span className='text-xl'>
-            {item.ledger_type === 'credit' ? '+' : '-'}
+            {item?.ledger_type === 'credit' ? '+' : '-'}
           </span>
           <p className='flex items-center'>
             <span className='text-sm'> ₹ </span>
@@ -88,7 +88,7 @@ const LedgerRow = ({ item }) => {
         </div>
       </td>
 
-      <td className='py-4 pl-4 min-w-28'>{item.ledger_reference_type}</td>
+      <td className='py-4 pl-4 min-w-28'>{item?.ledger_reference_type}</td>
 
       <td className='py-4 pl-4 min-w-[200px] lg:min-w-[300px]'>
         {item?.description}
