@@ -7,25 +7,27 @@ import QrImage from './QRImage';
 import Image from 'next/image';
 import Link from 'next/link';
 import { toast } from 'react-toastify';
+import { MAX_UPI, MIN_UPI } from '../../../../../../helpers/enums';
+import {
+  inrToNumber,
+  numberToInr,
+} from '../../../../../../helpers/MathHelpers';
 
 const ShareQRCode = () => {
   const [imageUrl, setImageUrl] = useState(null);
-  const [shareImgUrl, setShareImgUrl] = useState('');
-  const [contact, setContact] = useState({
-    phone: '',
-    userName: '',
-    amount: 0,
-  });
+
+  const [rechargeAmount, setRechargeAmount] = useState();
+
   const qrRef = useRef(null);
 
   const generateQR = (e) => {
     e.preventDefault();
 
-    if (!contact.userName || !contact?.phone || !contact.amount)
-      return toast.error('Please fill the details.');
+    if (rechargeAmount < MIN_UPI)
+      return toast.error('Minimum Recharge Amount is ' + MIN_UPI);
 
     let payment_string = `upi://pay?pa=FLAER@icici&pn=FLAER HOMES PRIVATE LIMITED&tr=EZY202405051641309847&am=${
-      contact?.amount || 0
+      rechargeAmount || 0
     }.0&cu=INR&mc=5411`;
 
     try {
@@ -45,7 +47,6 @@ const ShareQRCode = () => {
       height: 500,
     }).then((canvas) => {
       const url = canvas.toDataURL(imageUrl);
-      setShareImgUrl(url);
 
       const downloadLink = document.createElement('a');
       downloadLink.href = url;
@@ -57,50 +58,48 @@ const ShareQRCode = () => {
   };
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
+    let val = inrToNumber(e.target.value);
 
-    setContact((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    if (val > MAX_UPI) {
+      return toast.error(`Amount cannot be more than ${MAX_UPI}`);
+    }
+
+    let inr = numberToInr(val);
+    setRechargeAmount(inr);
   };
 
   return (
     <form className='lg:p-10 flex gap-24' onSubmit={generateQR}>
-      <div className='w-[300px] mt-10'>
-        <input
-          className='focus:outline-none w-[100%] h-10 lg:h-14 pl-4 mb-4 border border-borderGray rounded-md'
-          placeholder={'Enter Amount'}
-          name={'amount'}
-          type='number'
-          value={contact?.amount}
-          onChange={handleInputChange}
-          minLength={10}
-          maxLength={10}
-          required
-        />
+      <div className='w-[300px]'>
+        <p className='text-[#7C7986] text-sm mb-1 pl-1'>
+          Note: Minimum Recharge amount is ₹1,000 & Maximum is ₹99,999.
+        </p>
 
-        <input
-          className='focus:outline-none w-[100%] h-10 lg:h-14 pl-4 mb-4 border border-borderGray rounded-md'
-          placeholder={'Enter Mobile Number'}
-          name={'phone'}
-          type='number'
-          value={contact?.phone}
-          onChange={handleInputChange}
-          minLength={10}
-          maxLength={10}
-          required
-        />
+        <div className='relative'>
+          <span className='font-semibold absolute text-lg top-4 left-3 '>
+            ₹
+          </span>
+          <input
+            className='focus:outline-none text-lg w-[100%] h-10 lg:h-14 pl-6 mb-4 border border-borderGray rounded-md font-semibold'
+            placeholder={'Enter Amount'}
+            name={'amount'}
+            type='text'
+            value={rechargeAmount}
+            onChange={handleInputChange}
+            min={MIN_UPI}
+            required
+          />
+        </div>
 
-        <input
-          className='focus:outline-none w-[100%] h-10 lg:h-14 pl-4 mb-4 border border-borderGray rounded-md'
-          placeholder={'Enter Name'}
-          name={'userName'}
-          value={contact?.userName}
-          onChange={handleInputChange}
-          minLength={3}
-          required
-        />
+        <button
+          className={`px-4 py-2 text-white  rounded-md ${
+            parseInt(rechargeAmount) > MIN_UPI ? 'bg-darkBlue' : 'bg-pGray'
+          } `}
+          type='submit'
+          disabled={parseInt(rechargeAmount) < MIN_UPI}
+        >
+          Generate QR
+        </button>
       </div>
 
       <section>
@@ -120,38 +119,21 @@ const ShareQRCode = () => {
           <div className='pt-6 text-center grid place-items-center'>
             <QrImage imgSrc={imageUrl} />
           </div>
-          <div className='absolute bottom-4 left-5'>
-            <p className='text-xs text-pGray'>
+          <div className='absolute bottom-4 left-8'>
+            <p className='text-xs text-center text-pGray'>
               Flaer Homes © Copyright 2024, Inc. All rights reserved
             </p>
           </div>
         </div>
         <div>
-          <div className='flex gap-10 mt-6 mb-10'>
-            <button
-              className='px-4 py-2 bg-blue-600 text-white rounded-md'
-              type='submit'
-            >
-              Generate QR
-            </button>
-
+          <div className='flex justify-center gap-10 mt-6 mb-10'>
             <button
               onClick={handleDownload}
-              className='px-4 py-2 bg-blue-600 text-white rounded-md'
+              className='px-4 py-2 bg-darkBlue text-white rounded-md hover:scale-105 transition-all duration-100 '
             >
               Download QR
             </button>
-
-            {/* <Link
-              href={`https://api.whatsapp.com/send?phone=918977539314&img=${shareImgUrl}`}
-            >
-              <p className='px-4 py-2 bg-blue-600 text-white rounded-md'>
-                Share QR Code
-              </p>
-            </Link> */}
           </div>
-
-          {/* {imageUrl && <Image src={shareImgUrl} alt='QR Code' wid />} */}
         </div>
       </section>
     </form>

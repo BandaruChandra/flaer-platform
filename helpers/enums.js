@@ -24,7 +24,7 @@ export const CAT_CODES = {
 export const MAX_UPI = 99999; //max transferable amount on UPI
 
 // ! Change This
-export const MIN_UPI = 0; //min transferable amount on UPI
+export const MIN_UPI = 10; //min transferable amount on UPI
 export const UPI_EXPIRY_TIME = 10; // 10 mins
 
 export const FOOTER_ITEMS = {
@@ -186,7 +186,13 @@ export const BUSINESS_PARTNER_MENU = [
   },
 
   {
-    name: ' Account Details',
+    name: 'Recharge',
+    link: BUSINESS_PARTNER_ROUTES.RECHARGE,
+    id: 1,
+  },
+
+  {
+    name: 'Account Details',
     link: BUSINESS_PARTNER_ROUTES.ACCOUNT_DETAILS,
     id: 2,
   },

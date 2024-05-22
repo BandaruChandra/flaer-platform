@@ -12,6 +12,7 @@ export const DASHBOARD_ROUTES = {
 
 export const BUSINESS_PARTNER_ROUTES = {
   USERS_LIST: '/dashboard/business-partner/users-list',
+  RECHARGE: '/dashboard/business-partner/recharge',
   ACCOUNT_DETAILS: '/dashboard/business-partner/account-details',
   SITE_LEVEL_CASHBACK: '/dashboard/business-partner/site-level-cashback',
   ORDER_LEVEL_DISCOUNT: '/dashboard/business-partner/order-level-discount',

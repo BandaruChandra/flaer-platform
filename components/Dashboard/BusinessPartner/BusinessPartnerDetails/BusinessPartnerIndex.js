@@ -10,6 +10,7 @@ import LoyaltyAccount from './LoyaltyAccount/Index';
 import MembershipDiscount from './MembershipDiscount/Index';
 import Orders from './Orders/Index';
 import Quotation from './Quotation/Index';
+import Recharge from './Recharge/Index';
 
 function BusinessPartnerDetails({ url, id }) {
   return (
@@ -25,6 +26,8 @@ function BusinessPartnerDetails({ url, id }) {
       <div className='px-4 border rounded-b-md min-h-[80vh] shadow-md'>
         {url === BUSINESS_PARTNER_ROUTES.USERS_LIST ? (
           <PartnerUsers id={id} />
+        ) : url === BUSINESS_PARTNER_ROUTES.RECHARGE ? (
+          <Recharge id={id} />
         ) : url === BUSINESS_PARTNER_ROUTES.ACCOUNT_DETAILS ? (
           <AccountDetails id={id} />
         ) : url === BUSINESS_PARTNER_ROUTES.SITE_LEVEL_CASHBACK ? (
