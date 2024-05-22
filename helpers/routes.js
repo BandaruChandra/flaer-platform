@@ -17,7 +17,7 @@ export const BUSINESS_PARTNER_ROUTES = {
   ORDER_LEVEL_DISCOUNT: '/dashboard/business-partner/order-level-discount',
   MEMBERSHIP_DISCOUNT: '/dashboard/business-partner/membership-discount',
   PERIODIC_LEVEL_CASHBACK: '/dashboard/business-partner/periodic-cashback',
-  LOYALTY_POINTS: '/dashboard/business-partner/loyalty-points',
+  LOYALTY_ACCOUNT: '/dashboard/business-partner/loyalty-account',
   ORDERS: '/dashboard/business-partner/orders',
   QUOTATION: '/dashboard/business-partner/quotation',
 };

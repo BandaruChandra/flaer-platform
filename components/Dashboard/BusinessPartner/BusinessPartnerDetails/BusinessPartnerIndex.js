@@ -6,13 +6,13 @@ import AccountDetails from './AccountDetails/Index';
 import SiteLevelCashback from './SiteLevelCashback/Index';
 import OrderLevelDiscount from './OrderLevelDiscount/Index';
 import PeriodicLevelCashback from './PeriodicLevelCashback/Index';
-import LoyaltyPoints from './LoyaltyPoints/Index';
+import LoyaltyAccount from './LoyaltyAccount/Index';
 import MembershipDiscount from './MembershipDiscount/Index';
 
 function BusinessPartnerDetails({ url, id }) {
   return (
     <section className='mt-10 mb-40'>
-      <h4 className='font-semibold text-2xl text-center mb-10 mt-10 '>
+      <h4 className='font-semibold text-4xl text-center mb-10 mt-10 '>
         Business Partner
       </h4>
 
@@ -31,8 +31,8 @@ function BusinessPartnerDetails({ url, id }) {
           <OrderLevelDiscount id={id} />
         ) : url === BUSINESS_PARTNER_ROUTES.PERIODIC_LEVEL_CASHBACK ? (
           <PeriodicLevelCashback id={id} />
-        ) : url === BUSINESS_PARTNER_ROUTES.LOYALTY_POINTS ? (
-          <LoyaltyPoints id={id} />
+        ) : url === BUSINESS_PARTNER_ROUTES.LOYALTY_ACCOUNT ? (
+          <LoyaltyAccount id={id} />
         ) : url === BUSINESS_PARTNER_ROUTES.MEMBERSHIP_DISCOUNT ? (
           <MembershipDiscount id={id} />
         ) : (

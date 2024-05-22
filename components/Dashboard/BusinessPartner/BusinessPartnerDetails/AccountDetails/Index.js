@@ -36,7 +36,11 @@ async function AccountDetails({ id }) {
 
   return (
     <div>
-      <Header heading={'Account Balance'} amount={data?.account_amount} />
+      <Header
+        heading={'Account Balance'}
+        account={data?.account}
+        showAllThree
+      />
 
       <div className='mt-2'>
         <h4 className='mb-4 font-semibold text-2xl'> Account Ledger </h4>

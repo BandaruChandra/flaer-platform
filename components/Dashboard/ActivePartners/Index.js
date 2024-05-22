@@ -1,4 +1,4 @@
-import ActiveMembershipTable from './ActiveMembersTable';
+import ActivePartnersTable from './ActivePartnersTable';
 import Pagination from '../../Helpers/Pagination';
 import { DASHBOARD_ROUTES } from '../../../helpers/routes';
 import { RESPONSE_STATUS } from '../../../helpers/enums';
@@ -31,14 +31,14 @@ const getActiveMembers = async () => {
   }
 };
 
-async function ActiveMembershipList() {
+async function ActivePartners() {
   let href = `${DASHBOARD_ROUTES.ACTIVE_MEMBERSHIPS_LIST}?`;
 
   let data = await getActiveMembers();
 
   return (
     <div className='w-full'>
-      <ActiveMembershipTable data={data?.data} />
+      <ActivePartnersTable data={data?.data} />
 
       <Pagination
         pagesList={data?.meta?.total_pages}
@@ -49,4 +49,4 @@ async function ActiveMembershipList() {
   );
 }
 
-export default ActiveMembershipList;
+export default ActivePartners;

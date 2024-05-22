@@ -1,6 +1,6 @@
 import React from 'react';
 import { DASHBOARD_ROUTES } from '../../helpers/routes';
-import ActiveMembershipList from './ActiveMembershipUserListing/Index';
+import ActivePartners from './ActivePartners/Index';
 import AccountRecharge from './AccountRecharge/Index';
 import BusinessPartner from './BusinessPartner/Index';
 import ProjectAndSite from './ProjectAndSite/Index';
@@ -12,7 +12,7 @@ function DashboardIndex({ url }) {
   return (
     <div className='min-h-[80vh] my-10'>
       {url === DASHBOARD_ROUTES.ACTIVE_MEMBERSHIPS_LIST ? (
-        <ActiveMembershipList />
+        <ActivePartners />
       ) : url === DASHBOARD_ROUTES.ACCOUNT_RECHARGE ? (
         <AccountRecharge />
       ) : url === DASHBOARD_ROUTES.BUSINESS_PARTNERS ? (

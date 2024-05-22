@@ -37,8 +37,8 @@ async function PeriodicLevelCashback({ id }) {
   return (
     <div>
       <Header
-        amount={data?.total_periodic_cashback_amount}
         heading={'Periodic Cashback'}
+        amount={data?.total_periodic_cashback_amount}
       />
 
       <div className='mt-2'>

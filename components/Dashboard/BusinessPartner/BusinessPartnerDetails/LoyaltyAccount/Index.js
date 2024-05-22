@@ -31,12 +31,16 @@ const getLoyaltyAmount = async (id) => {
   }
 };
 
-async function LoyaltyPoints({ id }) {
+async function LoyaltyAccount({ id }) {
   const data = await getLoyaltyAmount(id);
 
   return (
     <div>
-      <Header heading={'Loyalty Amount'} amount={data?.loyalty_amount} />
+      <Header
+        heading={'Loyalty Amount'}
+        account={data?.loyalty_amount}
+        showAllThree
+      />
       <div className='mt-2'>
         <h4 className='mb-4 font-semibold text-2xl'> Loyalty Ledger </h4>
         <LoyaltyLedger id={id} />
@@ -45,4 +49,4 @@ async function LoyaltyPoints({ id }) {
   );
 }
 
-export default LoyaltyPoints;
+export default LoyaltyAccount;

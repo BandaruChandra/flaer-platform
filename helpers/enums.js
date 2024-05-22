@@ -59,14 +59,15 @@ export const FOOTER_ITEMS = {
 export const CUSTOM_STYLES = {
   control: (provided) => ({
     ...provided,
-    backgroundColor: '#2A254B',
+    backgroundColor: '#FFFFFF',
     borderColor: '#000000',
-    height: '100px',
+    height: 44,
+    minHeight: 44,
   }),
 
   option: (provided) => ({
     ...provided,
-    color: '#2A254B',
+    color: '#fff',
   }),
   dropdownIndicator: (provided) => ({
     ...provided,
@@ -212,8 +213,8 @@ export const BUSINESS_PARTNER_MENU = [
     id: 7,
   },
   {
-    name: 'Loyalty Points',
-    link: BUSINESS_PARTNER_ROUTES.LOYALTY_POINTS,
+    name: 'Loyalty Account',
+    link: BUSINESS_PARTNER_ROUTES.LOYALTY_ACCOUNT,
     id: 8,
   },
   {

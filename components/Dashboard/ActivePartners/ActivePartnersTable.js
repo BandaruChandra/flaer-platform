@@ -2,11 +2,43 @@
 import { useEffect, useState } from 'react';
 import Fuse from 'fuse.js';
 import { LuSearch } from 'react-icons/lu';
+import DropDown from '../../Helpers/DropDown';
 
-const ActiveMembershipTable = ({ data }) => {
+let MEMBERSHIP_OPTIONS = [];
+
+const ActivePartnersTable = ({ data }) => {
   const [filteredData, setFilteredData] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [fuseData, setFuseData] = useState([]);
+
+  const [membFilter, setMembFilter] = useState([]);
+
+  useEffect(() => {
+    if (filteredData?.length && !membFilter?.length) {
+      let list = filteredData?.map((item) => {
+        return item?.flaer_membership?.name;
+      });
+
+      let withoutDuplicates = [...new Set(list)];
+
+      MEMBERSHIP_OPTIONS = withoutDuplicates.map((item) => {
+        return {
+          label: item,
+          value: item,
+        };
+      });
+
+      setMembFilter(MEMBERSHIP_OPTIONS[0]);
+    } else {
+      MEMBERSHIP_OPTIONS = [];
+
+      if (membFilter?.length) {
+        setMembFilter(MEMBERSHIP_OPTIONS[0]);
+      }
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filteredData]);
 
   const optionsFuse = {
     includeScore: false,
@@ -64,19 +96,28 @@ const ActiveMembershipTable = ({ data }) => {
 
   return (
     <>
-      <div className='pb-0 max-w-sm mb-10 relative'>
-        <input
-          className='focus:outline-none w-full h-12 px-4 border border-borderGray rounded'
-          placeholder={' Search Partners'}
-          type={'text'}
-          name={'search'}
-          value={searchQuery || ''}
-          onChange={handleInputChange}
-        />
+      <div className='mb-10 flex justify-between'>
+        <div className='pb-0 max-w-sm relative'>
+          <input
+            className='focus:outline-none w-full h-12 px-4 border border-borderGray rounded'
+            placeholder={' Search Partners'}
+            type={'text'}
+            name={'search'}
+            value={searchQuery || ''}
+            onChange={handleInputChange}
+          />
 
-        <p className='absolute right-2 top-3.5 font-semibold '>
-          <LuSearch size={24} />
-        </p>
+          <p className='absolute right-2 top-3.5 font-semibold '>
+            <LuSearch size={24} />
+          </p>
+        </div>
+
+        <DropDown
+          value={membFilter}
+          setValue={setMembFilter}
+          options={MEMBERSHIP_OPTIONS}
+          clearable
+        />
       </div>
 
       <table className='min-w-full border rounded-md'>
@@ -147,4 +188,4 @@ const RowContainer = ({ item }) => {
   );
 };
 
-export default ActiveMembershipTable;
+export default ActivePartnersTable;

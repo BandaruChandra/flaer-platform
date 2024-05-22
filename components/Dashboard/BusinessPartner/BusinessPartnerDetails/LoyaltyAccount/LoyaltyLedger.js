@@ -33,8 +33,6 @@ const getLoyaltyLedger = async (id) => {
 const LoyaltyLedger = async ({ id }) => {
   const data = await getLoyaltyLedger(id);
 
-  console.log('data: ', data);
-
   return (
     <table className='min-w-full rounded-md'>
       <thead className='capitalise font-normal bg-lightBlue'>
