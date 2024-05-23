@@ -55,6 +55,7 @@ module.exports = {
         bannerBlue: '#2E3E77',
         navGray: '#6F6F6F',
         verified: '#1d771d',
+        lightBlue: '#ECEFF8',
       },
       width: {
         tabMax: '1440px',

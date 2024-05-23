@@ -1,0 +1,35 @@
+{
+  "status": "success",
+  "data": [
+    {
+      "id": 1,
+      "project_name": "Prestige High Fields",
+      "project_code": "PHF",
+      "address": "Nanakramguda, Hyderabad",
+      "project_type": "Residential",
+      "latitude": "17.4339",
+      "longitude": "78.3839",
+      "cities": "Hyderabad",
+      "cluster": "Kokapet",
+      "territory": "Narsingi"
+    },
+    {
+      "id": 2,
+      "project_name": "Prestige Great Fields",
+      "project_code": "PGF",
+      "address": "Nanakramguda, Hyderabad",
+      "project_type": "Residential",
+      "latitude": "17.4339",
+      "longitude": "78.3839",
+      "cities": "Hyderabad",
+      "cluster": "Kokapet",
+      "territory": "Narsingi"
+    }
+  ],
+  "meta": {
+    "current_page": 0,
+    "total_pages": 1,
+    "total_data_count": 2
+  },
+  "errors": []
+}

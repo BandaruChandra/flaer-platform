@@ -1,15 +1,17 @@
-// pages/index.js
-import QRCodeComponent from '../../components/Home/ShareQRCode';
+'use client';
+
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { DASHBOARD_ROUTES } from '../../helpers/routes';
 
 const HomePage = () => {
-  const qrData =
-    'upi://pay?pa=FLAER@icici&pn=FLAER HOMES PRIVATE LIMITED&tr=EZY202405051641309847&am=4.0&cu=INR&mc=5411';
+  const router = useRouter();
 
-  return (
-    <div>
-      <QRCodeComponent data={qrData} />
-    </div>
-  );
+  useEffect(() => {
+    router.push(DASHBOARD_ROUTES.BUSINESS_PARTNERS);
+  }, [router]);
+
+  return null; // Or you can return a loading spinner or a message
 };
 
 export default HomePage;
