@@ -2,7 +2,7 @@
 
 const nextConfig = {
   reactStrictMode: true,
-  output: 'standalone',
+  // output: 'export',
   images: {
     domains: [
       'localhost:3000',

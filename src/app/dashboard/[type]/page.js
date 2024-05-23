@@ -1,6 +1,17 @@
 import DashboardIndex from '../../../../components/Dashboard/DashboardIndex';
 import { DASHBOARD_MENU_LIST } from '../../../../helpers/enums';
 
+// export async function generateStaticParams() {
+//   return [
+//     // { type: [] },
+//     { type: 'active-members-list' },
+//     { type: 'account-recharge' },
+//     { type: 'projects-and-sites' },
+//     { type: 'business-partner' },
+//     { type: 'logout' },
+//   ];
+// }
+
 function page({ params }) {
   let url = `/dashboard/${params?.type}`;
 
