@@ -3,6 +3,8 @@ import { FaChevronLeft } from 'react-icons/fa';
 import Link from 'next/link';
 
 function Pagination({ pagesList, currPage, href }) {
+  console.log('currPage: ', currPage);
+
   return pagesList?.length > 1 ? (
     <div className='mt-6 mb-10 flex justify-center gap-6 text-darkBlue'>
       <div
@@ -36,7 +38,7 @@ function Pagination({ pagesList, currPage, href }) {
               <Link href={`${href}page=${page}`}>
                 <button
                   className={`${
-                    currPage === page
+                    currPage == page
                       ? 'bg-darkBlue text-white cursor-default'
                       : 'bg-solidGray'
                   } min-w-10 max-w-10 h-10 rounded-full font-semibold grid place-items-center transition-all duration-300`}

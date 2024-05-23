@@ -15,6 +15,7 @@ import {
   numberToInr,
 } from '../../../../../../helpers/MathHelpers';
 import { HiOutlineQrCode } from 'react-icons/hi2';
+import logo from '../../../../../../public/logo.svg';
 
 const ShareQRCode = ({ id }) => {
   const [imageUrl, setImageUrl] = useState();
@@ -131,7 +132,7 @@ const ShareQRCode = ({ id }) => {
 
           <button
             className={`px-4 py-2 text-white flex items-center gap-1 rounded-md ${
-              inrToNumber(rechargeAmount) > MIN_UPI && !imageUrl
+              inrToNumber(rechargeAmount) >= MIN_UPI && !imageUrl
                 ? 'bg-darkBlue transition-all hover:scale-105 duration-100'
                 : 'bg-pGray'
             } `}
@@ -151,15 +152,10 @@ const ShareQRCode = ({ id }) => {
             className='min-w-fit grid place-items-center w-[350px] h-[500px] text-center border rounded-lg'
           >
             <div className='grid place-items-center mt-6'>
-              <Image
-                src={`https://flaer-website-assets.s3.ap-south-1.amazonaws.com/homepage_assets/logo.svg`}
-                width={183}
-                height={21}
-                alt={'Main Logo'}
-              />
+              <Image src={logo} width={183} height={21} alt={'Main Logo'} />
             </div>
             <div className='pt-6 text-center grid place-items-center'>
-              <QrImage imgSrc={imageUrl} />
+              <QrImage imageUrl={imageUrl} />
             </div>
             <div className='absolute bottom-4 left-8'>
               <p className='text-xs text-center text-pGray'>

@@ -12,7 +12,7 @@ import Orders from './Orders/Index';
 import Quotation from './Quotation/Index';
 import Recharge from './Recharge/Index';
 
-function BusinessPartnerDetails({ url, id }) {
+function BusinessPartnerDetails({ url, id, page }) {
   return (
     <section className='mt-10 mb-40'>
       <h4 className='font-semibold text-4xl text-center mb-10 mt-10'>
@@ -27,7 +27,7 @@ function BusinessPartnerDetails({ url, id }) {
         {url === BUSINESS_PARTNER_ROUTES.USERS_LIST ? (
           <PartnerUsers id={id} />
         ) : url === BUSINESS_PARTNER_ROUTES.RECHARGE ? (
-          <Recharge id={id} />
+          <Recharge id={id} page={page} />
         ) : url === BUSINESS_PARTNER_ROUTES.ACCOUNT_DETAILS ? (
           <AccountDetails id={id} />
         ) : url === BUSINESS_PARTNER_ROUTES.SITE_LEVEL_CASHBACK ? (

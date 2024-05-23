@@ -6,7 +6,11 @@ function page({ params, searchParams }) {
   return (
     <div>
       <h1 className='text-center text-3xl mt-10 font-medium text-darkBlue2'></h1>
-      <BusinessPartnerIndex url={url} id={searchParams?.id} />
+      <BusinessPartnerIndex
+        url={url}
+        id={searchParams?.id}
+        page={searchParams?.page}
+      />
     </div>
   );
 }

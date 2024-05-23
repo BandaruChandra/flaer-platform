@@ -26,9 +26,11 @@ const CartTable = ({ data }) => {
         </p>
       </button>
 
-      <h4 className='mb-4 mt-6 font-semibold text-2xl'>
-        {currCart ? 'Cart Details' : 'Cart List'}
-      </h4>
+      {currCart ? (
+        ''
+      ) : (
+        <h4 className={` mt-12 mb-4 font-semibold text-2xl`}>Cart List</h4>
+      )}
 
       {currCart ? (
         <OneCart currCart={currCart} />

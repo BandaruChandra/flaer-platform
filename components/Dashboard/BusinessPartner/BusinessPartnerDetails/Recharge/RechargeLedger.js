@@ -1,18 +1,27 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
 import { numberToInr } from '../../../../../helpers/MathHelpers';
 import { RESPONSE_STATUS } from '../../../../../helpers/enums';
+import Pagination from '../../../../Helpers/Pagination';
+import { toast } from 'react-toastify';
 
-const RechargeLedger = ({ id }) => {
+const RechargeLedger = ({ id, page }) => {
   const [data, setData] = useState();
+  const [pagesList, setPagesList] = useState([]);
+
+  let href = `/dashboard/business-partner/recharge?id=${id}&`;
 
   useEffect(() => {
-    getRechargeLedger(id);
-  }, [id]);
+    getRechargeLedger(id, page);
 
-  const getRechargeLedger = async (id) => {
+    console.log('coming hrerereer', id, page);
+  }, [id, page]);
+
+  const getRechargeLedger = async (id, page) => {
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_ENDPOINT}/flaer_platform/v1/platform/get_all_recharges?by_business_partner=${id}`,
+        `${process.env.NEXT_PUBLIC_API_ENDPOINT}/flaer_platform/v1/platform/get_all_recharges?by_business_partner=${id}&page=${page}`,
         {
           method: 'GET',
           headers: {
@@ -27,6 +36,15 @@ const RechargeLedger = ({ id }) => {
 
       if (res.status === RESPONSE_STATUS.SUCCESS) {
         setData(res?.data);
+
+        let pList = [];
+        for (let i = 1; i <= res?.meta?.total_pages; i++) {
+          pList.push(i);
+        }
+
+        console.log('res: ', res);
+
+        setPagesList(pList);
       } else {
         console.log('error: ', res);
         return [];
@@ -37,9 +55,9 @@ const RechargeLedger = ({ id }) => {
     }
   };
 
-  async function checkStatus() {
+  async function checkStatus(recharge_id) {
     try {
-      let body = { account_recharge_id: initiatedData?.id };
+      let body = { account_recharge_id: recharge_id };
 
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_API_ENDPOINT}/flaer_platform/v1/platform/upi_status_check`,
@@ -72,22 +90,23 @@ const RechargeLedger = ({ id }) => {
   }
 
   return (
-    <table className='min-w-full overflow-hidden rounded-md'>
-      <thead className='capitalise font-normal bg-lightBlue'>
-        <tr>
-          <th
-            scope='col'
-            className='py-3 font-medium capitalize text-sm pl-4 text-start'
-          >
-            Id
-          </th>
-          <th
-            scope='col'
-            className='py-3 font-medium capitalize text-sm pl-4 text-start'
-          >
-            recharge amount
-          </th>
-          {/* 
+    <div>
+      <table className='min-w-full overflow-hidden rounded-md'>
+        <thead className='capitalise font-normal bg-lightBlue'>
+          <tr>
+            <th
+              scope='col'
+              className='py-3 font-medium capitalize text-sm pl-4 text-start'
+            >
+              Id
+            </th>
+            <th
+              scope='col'
+              className='py-3 font-medium capitalize text-sm pl-4 text-start'
+            >
+              recharge amount
+            </th>
+            {/* 
           <th
             scope='col'
             className='py-3 font-medium capitalize text-sm pl-4 text-start'
@@ -95,60 +114,62 @@ const RechargeLedger = ({ id }) => {
             payment aggregator
           </th> */}
 
-          <th
-            scope='col'
-            className='py-3 font-medium capitalize text-sm pl-4 text-start'
-          >
-            mode
-          </th>
+            <th
+              scope='col'
+              className='py-3 font-medium capitalize text-sm pl-4 text-start'
+            >
+              mode
+            </th>
 
-          <th
-            scope='col'
-            className='py-3 font-medium capitalize text-sm pl-4 text-start'
-          >
-            initiated at
-          </th>
-          <th
-            scope='col'
-            className='py-3 font-medium capitalize text-sm pl-4 text-start'
-          >
-            completed at
-          </th>
-          <th
-            scope='col'
-            className='py-3 font-medium capitalize text-sm pl-4 text-start'
-          >
-            transaction id
-          </th>
-          <th
-            scope='col'
-            className='py-3 font-medium capitalize text-sm pl-4 text-start'
-          >
-            UTR number
-          </th>
-          <th
-            scope='col'
-            className='py-3 font-medium capitalize text-sm pl-4 text-start'
-          >
-            status
-          </th>
-          <th
-            scope='col'
-            className='py-3 font-medium capitalize text-sm pl-4 text-start'
-          >
-            Check Status
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        {data &&
-          data?.map((item, ind) => {
-            return (
-              <LedgerRow key={ind} item={item} checkStatus={checkStatus} />
-            );
-          })}
-      </tbody>
-    </table>
+            <th
+              scope='col'
+              className='py-3 font-medium capitalize text-sm pl-4 text-start'
+            >
+              initiated at
+            </th>
+            <th
+              scope='col'
+              className='py-3 font-medium capitalize text-sm pl-4 text-start'
+            >
+              completed at
+            </th>
+            <th
+              scope='col'
+              className='py-3 font-medium capitalize text-sm pl-4 text-start'
+            >
+              transaction id
+            </th>
+            <th
+              scope='col'
+              className='py-3 font-medium capitalize text-sm pl-4 text-start'
+            >
+              UTR number
+            </th>
+            <th
+              scope='col'
+              className='py-3 font-medium capitalize text-sm pl-4 text-start'
+            >
+              status
+            </th>
+            <th
+              scope='col'
+              className='py-3 font-medium capitalize text-sm pl-4 text-start'
+            >
+              Check Status
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {data &&
+            data?.map((item, ind) => {
+              return (
+                <LedgerRow key={ind} item={item} checkStatus={checkStatus} />
+              );
+            })}
+        </tbody>
+      </table>
+      <Pagination pagesList={pagesList} currPage={page} href={href} />
+    </div>
   );
 };
 
@@ -163,7 +184,6 @@ const LedgerRow = ({ item, checkStatus }) => {
         </p>
       </td>
 
-      {/* <td className='py-4 pl-4 '>{item?.payment_aggregator}</td> */}
       <td className='py-4 pl-4'>{item?.payment_mode}</td>
       <td className='py-4 pl-4'>{}</td>
       <td className='py-4 pl-4'>{item?.completed_at}</td>
@@ -176,7 +196,7 @@ const LedgerRow = ({ item, checkStatus }) => {
           <button
             className='bg-darkBlue font-medium hover:scale-105 px-6 py-2 text-white rounded-md transition-all duration-all'
             onClick={() => {
-              checkStatus();
+              checkStatus(item?.id);
             }}
           >
             Check Status

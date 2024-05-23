@@ -5,7 +5,7 @@ import Button from '../../../../Helpers/Button';
 import ShareQRCode from './QRCode/ShareQRCode';
 import RechargeLedger from './RechargeLedger';
 
-const Recharge = ({ id }) => {
+const Recharge = ({ id, page }) => {
   const [newRecharge, setNewRecharge] = useState(false);
 
   const handleOnClick = () => {
@@ -25,7 +25,11 @@ const Recharge = ({ id }) => {
         />
       </div>
 
-      {newRecharge ? <ShareQRCode id={id} /> : <RechargeLedger id={id} />}
+      {newRecharge ? (
+        <ShareQRCode id={id} />
+      ) : (
+        <RechargeLedger id={id} page={page} />
+      )}
     </div>
   );
 };

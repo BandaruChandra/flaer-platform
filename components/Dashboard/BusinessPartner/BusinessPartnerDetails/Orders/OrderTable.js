@@ -27,7 +27,11 @@ const OrderTable = ({ data }) => {
         </p>
       </button>
 
-      <h4 className='mb-4 mt-6 font-semibold text-2xl'>
+      <h4
+        className={`${
+          currOrder ? 'mt-6' : 'mt-12'
+        } mb-4 font-semibold text-2xl`}
+      >
         {currOrder ? 'Order Details' : 'Order List'}
       </h4>
 

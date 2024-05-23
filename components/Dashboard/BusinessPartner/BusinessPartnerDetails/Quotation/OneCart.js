@@ -1,70 +1,33 @@
 import React from 'react';
 import CartLineItemsTable from './CartLineItemsTable';
+import CartAttributesTable from './CartAttributesTable';
 
 function OneCart({ currCart }) {
   return (
-    <div>
+    <div className='mt-6'>
       <div className='flex gap-20 mb-6'>
-        <BillingDetails
-          business_partner_details={currCart?.business_partner_details}
-          address={currCart?.bill_address}
-        />
-        <ShippingDetails
-          home_owner_details={currCart?.home_owner_details}
-          address={currCart?.shipping_address}
-        />
-        <SiteDetails site_details={currCart?.site_details} />
-      </div>
+        <Summary currCart={currCart} />
 
+        <div className='w-full'>
+          <HomeOwnerAndSite
+            home_owner_details={currCart?.home_owner_details}
+            address={currCart?.shipping_address}
+            site_details={currCart?.site_details}
+          />
+
+          <BusinessPartner
+            data={currCart?.business_partner_details}
+            address={currCart?.bill_address}
+          />
+        </div>
+      </div>
       <CartLineItemsTable data={currCart?.cart_line_items} />
-
-      <div className='flex gap-10 mb-20'>
-        <TopLevelData currCart={currCart} />
-        {/* <PaymentDetails payment_details={currCart?.payment_details?.[0]} /> */}
-        <CartAttributes cart_attributes={currCart?.cart_attributes?.[0]} />
-      </div>
+      <CartAttributesTable data={currCart?.cart_attributes} />
     </div>
   );
 }
 
-const BillingDetails = ({ business_partner_details, address }) => {
-  return (
-    <div className='bg-lightBlue rounded-md p-4'>
-      <div className='flex gap-2'>
-        <p className='w-44'> Business Partner Id </p> :
-        <p> {business_partner_details?.id} </p>
-      </div>
-      <div className='flex gap-2'>
-        <p className='w-44'> Business Partner Name </p> :
-        <p>{business_partner_details?.business_partner_name}</p>
-      </div>
-      <div className='flex gap-2'>
-        <p className='w-44'> Billing Address </p> :<p>{address}</p>
-      </div>
-    </div>
-  );
-};
-
-const ShippingDetails = ({ home_owner_details, address }) => {
-  return (
-    <div className='bg-lightBlue rounded-md p-4'>
-      <div className='flex gap-2'>
-        <p className='w-44'> Home Owner Id </p> :
-        <p> {home_owner_details?.id} </p>
-      </div>
-      <div className='flex gap-2'>
-        <p className='w-44'> Home Owner Name </p> :
-        <p>{home_owner_details?.home_owner_name}</p>
-      </div>
-
-      <div className='flex gap-2'>
-        <p className='w-44'> Shipping Address </p> :<p>{address}</p>
-      </div>
-    </div>
-  );
-};
-
-function TopLevelData({ currCart }) {
+function Summary({ currCart }) {
   let notNeeded = [
     'home_owner_details',
     'site_details',
@@ -77,66 +40,130 @@ function TopLevelData({ currCart }) {
   ];
 
   return (
-    <div className='bg-lightBlue rounded-md p-4 max-w-fit'>
-      <h1 className='font-semibold mb-1 border-b-2 border-b-darkBlue2 max-w-fit'>
-        Top Level Data
-      </h1>
-      {Object.keys(currCart)?.map((item, ind) => {
-        if (notNeeded.includes(item)) return;
+    <div className='mb-10'>
+      <h4 className='font-semibold mb-2 text-xl'> Summary </h4>
+      <div className='border rounded-md max-w-fit '>
+        {Object.keys(currCart)?.map((item, ind) => {
+          if (notNeeded.includes(item)) return;
 
-        return (
-          <div key={ind} className='flex gap-4 font-medium  px-2 py-1.5'>
-            <p className='w-36 capitalize'>{item?.split('_')?.join(' ')}</p>:
-            <p className=''> {currCart?.[item]}</p>
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
-const SiteDetails = ({ site_details }) => {
-  return (
-    <div className='bg-lightBlue rounded-md p-4 max-w-fit'>
-      <h1 className='font-semibold mb-1 border-b-2 border-b-darkBlue2 max-w-fit'>
-        Site Details
-      </h1>
-
-      <div>
-        {Object.keys(site_details)?.map((item, ind) => {
           return (
-            <div key={ind} className='flex gap-4 even:bg-lightBlue'>
-              <p className='w-36 capitalize'>{item?.split('_')?.join(' ')}</p>:
-              <p className=''> {site_details?.[item]}</p>
+            <div key={ind} className='flex gap-4 px-4 py-1.5 border-b'>
+              <p className='w-36 capitalize'>{item?.split('_')?.join(' ')}</p>
+
+              {item === 'status' || item === 'id' ? (
+                <p className='capitalize'> {currCart?.[item]}</p>
+              ) : (
+                <p className='font-medium truncate min-w-fit'>
+                  <span className='text-sm'>₹</span> {currCart?.[item]}
+                </p>
+              )}
             </div>
           );
         })}
       </div>
     </div>
   );
+}
+
+const BusinessPartner = ({ data, address }) => {
+  return (
+    <div className=''>
+      <h4 className={`mb-2 font-semibold text-xl capitalize`}>
+        Business Partner Details
+      </h4>
+
+      <table className='min-w-full border rounded-md shadow-lg shadow-light-blue mb-10'>
+        <thead className='capitalise font-normal bg-lightBlue pr-4 h-14 '>
+          <tr>
+            <th
+              scope='col'
+              className='font-medium capitalize pl-4 text-start truncate'
+            >
+              Id
+            </th>
+
+            <th scope='col' className='font-medium capitalize pl-4 text-start'>
+              Name
+            </th>
+            <th scope='col' className='font-medium capitalize pl-4 text-start'>
+              Bill Address
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className={`border-b text-gray-700 h-14`}>
+            <td className='pl-4'>{data?.id}</td>
+            <td className='pl-4'>{data?.business_partner_name}</td>
+            <td className='pl-4'>{address}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  );
 };
 
-const CartAttributes = ({ cart_attributes }) => {
-  return Object.keys(cart_attributes || {})?.length ? (
-    <div className='bg-lightBlue rounded-md p-4 max-w-fit'>
-      <h1 className='font-semibold mb-1 border-b-2 border-b-darkBlue2 max-w-fit'>
-        Cart Attributes
-      </h1>
+const HomeOwnerAndSite = ({ home_owner_details, address, site_details }) => {
+  return (
+    <section className='w-full'>
+      <h4 className={`mb-2 font-semibold text-xl capitalize`}>
+        Home Owner Details
+      </h4>
+      <table className='min-w-full border rounded-md shadow-lg shadow-light-blue mb-10'>
+        <thead className='capitalise font-normal bg-lightBlue pr-4 h-14 '>
+          <tr>
+            <th
+              scope='col'
+              className='font-medium capitalize pl-4 text-start truncate'
+            >
+              Id
+            </th>
 
-      {Object.keys(cart_attributes)?.map((item, ind) => {
-        return (
-          <div
-            key={ind}
-            className='flex gap-4 font-medium even:bg-lightBlue px-2 py-1.5'
-          >
-            <p className='w-36 capitalize'>{item?.split('_')?.join(' ')}</p>:
-            <p className=''> {cart_attributes?.[item]}</p>
-          </div>
-        );
-      })}
-    </div>
-  ) : (
-    ''
+            <th scope='col' className='font-medium capitalize pl-4 text-start'>
+              Name
+            </th>
+            <th scope='col' className='font-medium capitalize pl-4 text-start'>
+              Shipping Address
+            </th>
+            <th scope='col' className='font-medium capitalize pl-4 text-start'>
+              flat number
+            </th>
+
+            <th scope='col' className='font-medium capitalize pl-4 text-start'>
+              Block
+            </th>
+
+            <th scope='col' className='font-medium capitalize pl-4 text-start'>
+              Floor
+            </th>
+
+            <th scope='col' className='font-medium capitalize pl-4 text-start'>
+              site type
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <RowContainer
+            home_owner_details={home_owner_details}
+            address={address}
+            site_details={site_details}
+          />
+        </tbody>
+      </table>
+    </section>
+  );
+};
+
+const RowContainer = ({ home_owner_details, address, site_details }) => {
+  return (
+    <tr className={`border-b text-gray-700 h-14`}>
+      <td className='pl-4'>{home_owner_details?.id}</td>
+      <td className='pl-4'>{home_owner_details?.home_owner_name}</td>
+      <td className='pl-4'>{address}</td>
+      <td className='pl-4'>{site_details?.flat_number}</td>
+      <td className='pl-4'>{site_details?.block}</td>
+      <td className='pl-4'>{site_details?.floor_number}</td>
+      <td className='pl-4'>{site_details?.site_type}</td>
+    </tr>
   );
 };
 
