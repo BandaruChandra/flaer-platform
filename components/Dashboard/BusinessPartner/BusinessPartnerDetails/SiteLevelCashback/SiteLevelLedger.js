@@ -1,11 +1,14 @@
 import React from 'react';
 import { numberToInr } from '../../../../../helpers/MathHelpers';
-import { RESPONSE_STATUS } from '../../../../../helpers/enums';
+import {
+  NEXT_PUBLIC_API_ENDPOINT,
+  RESPONSE_STATUS,
+} from '../../../../../helpers/enums';
 
 const getSiteLevelLedger = async (id) => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/flaer_platform/v1/platform/listing_site_level_cashbacks?business_partner_id=${id}`,
+      `${NEXT_PUBLIC_API_ENDPOINT}/flaer_platform/v1/platform/listing_site_level_cashbacks?business_partner_id=${id}`,
       {
         method: 'GET',
         headers: {

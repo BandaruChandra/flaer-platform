@@ -1,10 +1,13 @@
 import React from 'react';
-import { RESPONSE_STATUS } from '../../../../helpers/enums';
+import {
+  NEXT_PUBLIC_API_ENDPOINT,
+  RESPONSE_STATUS,
+} from '../../../../helpers/enums';
 
 const getBusinessPartnerUsers = async () => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/flaer_platform/v1/platform/1/get_business_partner_users`,
+      `${NEXT_PUBLIC_API_ENDPOINT}/flaer_platform/v1/platform/1/get_business_partner_users`,
       {
         method: 'GET',
         headers: {

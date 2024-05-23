@@ -1,12 +1,15 @@
 import React from 'react';
-import { RESPONSE_STATUS } from '../../../../../helpers/enums';
+import {
+  NEXT_PUBLIC_API_ENDPOINT,
+  RESPONSE_STATUS,
+} from '../../../../../helpers/enums';
 import Header from '../Header';
 import SiteLevelLedger from './SiteLevelLedger';
 
 const getSiteLevelAmount = async (id) => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/flaer_platform/v1/platform/total_site_level_cashback_amount?business_partner_id=${id}`,
+      `${NEXT_PUBLIC_API_ENDPOINT}/flaer_platform/v1/platform/total_site_level_cashback_amount?business_partner_id=${id}`,
       {
         method: 'GET',
         headers: {

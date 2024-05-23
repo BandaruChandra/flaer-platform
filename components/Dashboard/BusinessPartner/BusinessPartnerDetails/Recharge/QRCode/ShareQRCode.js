@@ -9,6 +9,7 @@ import { FaDownload } from 'react-icons/fa6';
 import {
   MAX_UPI,
   MIN_UPI,
+  NEXT_PUBLIC_API_ENDPOINT,
   RESPONSE_STATUS,
 } from '../../../../../../helpers/enums';
 import {
@@ -74,7 +75,7 @@ const ShareQRCode = ({ id }) => {
 
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_ENDPOINT}/flaer_platform/v1/platform/initiate_upi_transaction`,
+        `${NEXT_PUBLIC_API_ENDPOINT}/flaer_platform/v1/platform/initiate_upi_transaction`,
 
         {
           method: 'POST',

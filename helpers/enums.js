@@ -13,6 +13,8 @@ import { BUSINESS_PARTNER_ROUTES, DASHBOARD_ROUTES } from './routes';
 export const S3_BASE_URL =
   'https://flaer-website-assets.s3.ap-south-1.amazonaws.com';
 
+export const NEXT_PUBLIC_API_ENDPOINT = `https://api.staging.flaerhomes.com`;
+
 export const DEVELOPMENT = 'development';
 export const PRODUCTION = 'production';
 

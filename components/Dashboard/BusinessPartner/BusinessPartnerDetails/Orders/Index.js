@@ -1,10 +1,13 @@
-import { RESPONSE_STATUS } from '../../../../../helpers/enums';
+import {
+  NEXT_PUBLIC_API_ENDPOINT,
+  RESPONSE_STATUS,
+} from '../../../../../helpers/enums';
 import OrderTable from './OrderTable';
 
 const getOrders = async (id) => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/flaer_platform/v1/platform/get_orders?by_business_partner=1=${id}`,
+      `${NEXT_PUBLIC_API_ENDPOINT}/flaer_platform/v1/platform/get_orders?by_business_partner=1=${id}`,
       {
         method: 'GET',
         headers: {

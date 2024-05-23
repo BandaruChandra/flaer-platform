@@ -2,7 +2,10 @@
 
 import React, { useEffect, useState } from 'react';
 import { numberToInr } from '../../../../../helpers/MathHelpers';
-import { RESPONSE_STATUS } from '../../../../../helpers/enums';
+import {
+  NEXT_PUBLIC_API_ENDPOINT,
+  RESPONSE_STATUS,
+} from '../../../../../helpers/enums';
 import Pagination from '../../../../Helpers/Pagination';
 import { toast } from 'react-toastify';
 
@@ -21,7 +24,7 @@ const RechargeLedger = ({ id, page }) => {
   const getRechargeLedger = async (id, page) => {
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_ENDPOINT}/flaer_platform/v1/platform/get_all_recharges?by_business_partner=${id}&page=${page}`,
+        `${NEXT_PUBLIC_API_ENDPOINT}/flaer_platform/v1/platform/get_all_recharges?by_business_partner=${id}&page=${page}`,
         {
           method: 'GET',
           headers: {
@@ -60,7 +63,7 @@ const RechargeLedger = ({ id, page }) => {
       let body = { account_recharge_id: recharge_id };
 
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_ENDPOINT}/flaer_platform/v1/platform/upi_status_check`,
+        `${NEXT_PUBLIC_API_ENDPOINT}/flaer_platform/v1/platform/upi_status_check`,
 
         {
           method: 'PUT',

@@ -1,4 +1,7 @@
-import { RESPONSE_STATUS } from '../../../helpers/enums';
+import {
+  NEXT_PUBLIC_API_ENDPOINT,
+  RESPONSE_STATUS,
+} from '../../../helpers/enums';
 import Pagination from '../../Helpers/Pagination';
 import ProjectTable from './ProjectTable';
 
@@ -6,7 +9,7 @@ import ProjectTable from './ProjectTable';
 const getProjects = async () => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/flaer_platform/v1/platform/get_projects`,
+      `${NEXT_PUBLIC_API_ENDPOINT}/flaer_platform/v1/platform/get_projects`,
       {
         method: 'GET',
         headers: {
