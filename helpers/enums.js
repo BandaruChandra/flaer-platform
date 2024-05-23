@@ -149,7 +149,7 @@ export const DASHBOARD_MENU_LIST = [
     id: 8,
   },
 
-  { name: 'Logout', link: DASHBOARD_ROUTES.LOGOUT, icon: <MdLogout />, id: 9 },
+  // { name: 'Logout', link: DASHBOARD_ROUTES.LOGOUT, icon: <MdLogout />, id: 9 },
 ];
 
 export const RESPONSE_STATUS = {
