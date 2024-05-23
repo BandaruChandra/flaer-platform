@@ -24,7 +24,7 @@ export const CAT_CODES = {
 export const MAX_UPI = 99999; //max transferable amount on UPI
 
 // ! Change This
-export const MIN_UPI = 10; //min transferable amount on UPI
+export const MIN_UPI = 1000; //min transferable amount on UPI
 export const UPI_EXPIRY_TIME = 10; // 10 mins
 
 export const FOOTER_ITEMS = {
