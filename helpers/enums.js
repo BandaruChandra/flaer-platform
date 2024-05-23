@@ -1,13 +1,7 @@
-import {
-  MdOutlinePersonOutline,
-  MdLogout,
-  MdOutlineShoppingBag,
-} from 'react-icons/md';
+import { MdLogout } from 'react-icons/md';
 import { IoPeople, IoPerson } from 'react-icons/io5';
 import { GiEarthAsiaOceania } from 'react-icons/gi';
 import { HiOutlineQrCode } from 'react-icons/hi2';
-import { PiBankDuotone } from 'react-icons/pi';
-import { BiQrScan } from 'react-icons/bi';
 import { BUSINESS_PARTNER_ROUTES, DASHBOARD_ROUTES } from './routes';
 
 export const S3_BASE_URL =
@@ -121,12 +115,12 @@ export const DASHBOARD_MENU_LIST = [
     id: 4,
   },
 
-  {
-    name: 'Sharable QR',
-    link: DASHBOARD_ROUTES.ACCOUNT_RECHARGE,
-    icon: <HiOutlineQrCode />,
-    id: 3,
-  },
+  // {
+  //   name: 'Sharable QR',
+  //   link: DASHBOARD_ROUTES.ACCOUNT_RECHARGE,
+  //   icon: <HiOutlineQrCode />,
+  //   id: 3,
+  // },
 
   // {
   //   name: 'Order Level Discount',
