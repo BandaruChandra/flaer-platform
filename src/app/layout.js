@@ -13,7 +13,6 @@ const inter = Outfit({
 });
 
 export const metadata = {
-  manifest: '/manifest.json',
   title: 'Flaer Internal Tool',
   description: 'Application for managing internal stuff.',
 };
@@ -21,9 +20,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <Head>
-        <link rel='manifest' href='/manifest.json'></link>
-      </Head>
       <body className={`${inter.className} text-gray-800`}>
         <ToastContainer />
 
