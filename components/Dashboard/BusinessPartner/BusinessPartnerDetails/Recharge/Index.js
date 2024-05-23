@@ -25,7 +25,7 @@ const Recharge = ({ id }) => {
         />
       </div>
 
-      {newRecharge ? <ShareQRCode /> : <RechargeLedger id={id} />}
+      {newRecharge ? <ShareQRCode id={id} /> : <RechargeLedger id={id} />}
     </div>
   );
 };

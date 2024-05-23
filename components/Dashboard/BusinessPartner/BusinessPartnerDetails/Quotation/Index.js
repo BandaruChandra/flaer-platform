@@ -1,5 +1,4 @@
 import { RESPONSE_STATUS } from '../../../../../helpers/enums';
-import Cart from './OneCart';
 import CartTable from './CartTable';
 
 const getCarts = async (id) => {

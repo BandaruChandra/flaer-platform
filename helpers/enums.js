@@ -188,7 +188,7 @@ export const BUSINESS_PARTNER_MENU = [
   {
     name: 'Recharge',
     link: BUSINESS_PARTNER_ROUTES.RECHARGE,
-    id: 1,
+    id: 11,
   },
 
   {
