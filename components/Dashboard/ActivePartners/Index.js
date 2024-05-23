@@ -1,12 +1,15 @@
 import ActivePartnersTable from './ActivePartnersTable';
 import Pagination from '../../Helpers/Pagination';
 import { DASHBOARD_ROUTES } from '../../../helpers/routes';
-import { RESPONSE_STATUS } from '../../../helpers/enums';
+import {
+  NEXT_PUBLIC_API_ENDPOINT,
+  RESPONSE_STATUS,
+} from '../../../helpers/enums';
 
 const getActiveMembers = async () => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_ENDPOINT}/flaer_platform/v1/platform/get_flaer_membership_active_partners`,
+      `${NEXT_PUBLIC_API_ENDPOINT}/flaer_platform/v1/platform/get_flaer_membership_active_partners`,
       {
         method: 'GET',
         headers: {
