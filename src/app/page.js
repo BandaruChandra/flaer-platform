@@ -1,12 +1,17 @@
-// pages/index.js
+'use client';
 
-import Home from '../../components/Home/Index';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { DASHBOARD_ROUTES } from '../../helpers/routes';
+
 const HomePage = () => {
-  return (
-    <div>
-      <Home />
-    </div>
-  );
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push(DASHBOARD_ROUTES.BUSINESS_PARTNERS);
+  }, [router]);
+
+  return null; // Or you can return a loading spinner or a message
 };
 
 export default HomePage;

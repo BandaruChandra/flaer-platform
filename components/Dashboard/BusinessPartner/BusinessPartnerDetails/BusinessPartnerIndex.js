@@ -19,34 +19,34 @@ function BusinessPartnerDetails({ url, id, page }) {
         Business Partner
       </h4>
 
-      <div>
+      <div className=' shadow-md'>
         <Tabs url={url} id={id} />
-      </div>
 
-      <div className='px-4 border rounded-b-md min-h-[80vh] shadow-md'>
-        {url === BUSINESS_PARTNER_ROUTES.USERS_LIST ? (
-          <PartnerUsers id={id} />
-        ) : url === BUSINESS_PARTNER_ROUTES.RECHARGE ? (
-          <Recharge id={id} page={page} />
-        ) : url === BUSINESS_PARTNER_ROUTES.ACCOUNT_DETAILS ? (
-          <AccountDetails id={id} />
-        ) : url === BUSINESS_PARTNER_ROUTES.SITE_LEVEL_CASHBACK ? (
-          <SiteLevelCashback id={id} />
-        ) : url === BUSINESS_PARTNER_ROUTES.ORDER_LEVEL_DISCOUNT ? (
-          <OrderLevelDiscount id={id} />
-        ) : url === BUSINESS_PARTNER_ROUTES.PERIODIC_LEVEL_CASHBACK ? (
-          <PeriodicLevelCashback id={id} />
-        ) : url === BUSINESS_PARTNER_ROUTES.LOYALTY_ACCOUNT ? (
-          <LoyaltyAccount id={id} />
-        ) : url === BUSINESS_PARTNER_ROUTES.MEMBERSHIP_DISCOUNT ? (
-          <MembershipDiscount id={id} />
-        ) : url === BUSINESS_PARTNER_ROUTES.ORDERS ? (
-          <Orders id={id} />
-        ) : url === BUSINESS_PARTNER_ROUTES.QUOTATION ? (
-          <Quotation id={id} />
-        ) : (
-          ''
-        )}
+        <div className='px-4 border rounded-b-md min-h-[80vh] shadow-md'>
+          {url === BUSINESS_PARTNER_ROUTES.USERS_LIST ? (
+            <PartnerUsers id={id} />
+          ) : url === BUSINESS_PARTNER_ROUTES.RECHARGE ? (
+            <Recharge id={id} page={page} />
+          ) : url === BUSINESS_PARTNER_ROUTES.ACCOUNT_DETAILS ? (
+            <AccountDetails id={id} />
+          ) : url === BUSINESS_PARTNER_ROUTES.SITE_LEVEL_CASHBACK ? (
+            <SiteLevelCashback id={id} />
+          ) : url === BUSINESS_PARTNER_ROUTES.ORDER_LEVEL_DISCOUNT ? (
+            <OrderLevelDiscount id={id} />
+          ) : url === BUSINESS_PARTNER_ROUTES.PERIODIC_LEVEL_CASHBACK ? (
+            <PeriodicLevelCashback id={id} />
+          ) : url === BUSINESS_PARTNER_ROUTES.LOYALTY_ACCOUNT ? (
+            <LoyaltyAccount id={id} />
+          ) : url === BUSINESS_PARTNER_ROUTES.MEMBERSHIP_DISCOUNT ? (
+            <MembershipDiscount id={id} />
+          ) : url === BUSINESS_PARTNER_ROUTES.ORDERS ? (
+            <Orders id={id} />
+          ) : url === BUSINESS_PARTNER_ROUTES.QUOTATION ? (
+            <Quotation id={id} />
+          ) : (
+            ''
+          )}
+        </div>
       </div>
     </section>
   );
