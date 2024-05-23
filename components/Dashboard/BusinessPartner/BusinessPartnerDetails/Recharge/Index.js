@@ -22,6 +22,7 @@ const Recharge = ({ id, page }) => {
         <Button
           text={newRecharge ? 'Recharge Ledger' : 'New Recharge'}
           handleOnClick={handleOnClick}
+          newRecharge={newRecharge}
         />
       </div>
 

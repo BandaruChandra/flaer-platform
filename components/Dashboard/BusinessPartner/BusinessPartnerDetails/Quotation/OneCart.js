@@ -1,6 +1,7 @@
 import React from 'react';
 import CartLineItemsTable from './CartLineItemsTable';
 import CartAttributesTable from './CartAttributesTable';
+import { numberToInr } from '../../../../../helpers/MathHelpers';
 
 function OneCart({ currCart }) {
   return (
@@ -9,20 +10,16 @@ function OneCart({ currCart }) {
         <Summary currCart={currCart} />
 
         <div className='w-full'>
-          <HomeOwnerAndSite
+          <HomeOwnerAndBusinessPartner
             home_owner_details={currCart?.home_owner_details}
-            address={currCart?.shipping_address}
-            site_details={currCart?.site_details}
+            business_partner_details={currCart?.business_partner_details}
           />
 
-          <BusinessPartner
-            data={currCart?.business_partner_details}
-            address={currCart?.bill_address}
-          />
+          <SiteDetails data={currCart?.site_details} />
         </div>
       </div>
+      <CartAttributes data={currCart?.cart_attributes} />
       <CartLineItemsTable data={currCart?.cart_line_items} />
-      <CartAttributesTable data={currCart?.cart_attributes} />
     </div>
   );
 }
@@ -42,12 +39,15 @@ function Summary({ currCart }) {
   return (
     <div className='mb-10'>
       <h4 className='font-semibold mb-2 text-xl'> Summary </h4>
-      <div className='border rounded-md max-w-fit '>
+      <div className='border rounded-md max-w-fit shadow-xl'>
         {Object.keys(currCart)?.map((item, ind) => {
           if (notNeeded.includes(item)) return;
 
           return (
-            <div key={ind} className='flex gap-4 px-4 py-1.5 border-b'>
+            <div
+              key={ind}
+              className='flex gap-4 px-6 py-2 border-b even:bg-lightBlue'
+            >
               <p className='w-36 capitalize'>{item?.split('_')?.join(' ')}</p>
 
               {item === 'status' || item === 'id' ? (
@@ -65,105 +65,77 @@ function Summary({ currCart }) {
   );
 }
 
-const BusinessPartner = ({ data, address }) => {
+const HomeOwnerAndBusinessPartner = ({
+  home_owner_details,
+  business_partner_details,
+}) => {
   return (
-    <div className=''>
-      <h4 className={`mb-2 font-semibold text-xl capitalize`}>
-        Business Partner Details
-      </h4>
+    <section className='w-full flex gap-20 mt-8 '>
+      <div className='text-darkBlue2 col-span-1'>
+        <p> Home Owner Name </p>
+        <h1 className='text-xl font-semibold'>
+          {home_owner_details?.home_owner_name}
+        </h1>
+      </div>
 
-      <table className='min-w-full border rounded-md shadow-lg shadow-light-blue mb-10'>
-        <thead className='capitalise font-normal bg-lightBlue pr-4 h-14 '>
-          <tr>
-            <th
-              scope='col'
-              className='font-medium capitalize pl-4 text-start truncate'
-            >
-              Id
-            </th>
-
-            <th scope='col' className='font-medium capitalize pl-4 text-start'>
-              Name
-            </th>
-            <th scope='col' className='font-medium capitalize pl-4 text-start'>
-              Bill Address
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr className={`border-b text-gray-700 h-14`}>
-            <td className='pl-4'>{data?.id}</td>
-            <td className='pl-4'>{data?.business_partner_name}</td>
-            <td className='pl-4'>{address}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  );
-};
-
-const HomeOwnerAndSite = ({ home_owner_details, address, site_details }) => {
-  return (
-    <section className='w-full'>
-      <h4 className={`mb-2 font-semibold text-xl capitalize`}>
-        Home Owner Details
-      </h4>
-      <table className='min-w-full border rounded-md shadow-lg shadow-light-blue mb-10'>
-        <thead className='capitalise font-normal bg-lightBlue pr-4 h-14 '>
-          <tr>
-            <th
-              scope='col'
-              className='font-medium capitalize pl-4 text-start truncate'
-            >
-              Id
-            </th>
-
-            <th scope='col' className='font-medium capitalize pl-4 text-start'>
-              Name
-            </th>
-            <th scope='col' className='font-medium capitalize pl-4 text-start'>
-              Shipping Address
-            </th>
-            <th scope='col' className='font-medium capitalize pl-4 text-start'>
-              flat number
-            </th>
-
-            <th scope='col' className='font-medium capitalize pl-4 text-start'>
-              Block
-            </th>
-
-            <th scope='col' className='font-medium capitalize pl-4 text-start'>
-              Floor
-            </th>
-
-            <th scope='col' className='font-medium capitalize pl-4 text-start'>
-              site type
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <RowContainer
-            home_owner_details={home_owner_details}
-            address={address}
-            site_details={site_details}
-          />
-        </tbody>
-      </table>
+      <div className='text-darkBlue2 col-span-1'>
+        <p> Partner Name </p>
+        <h1 className='text-xl font-semibold'>
+          {business_partner_details?.business_partner_name}
+        </h1>
+      </div>
     </section>
   );
 };
 
-const RowContainer = ({ home_owner_details, address, site_details }) => {
+const SiteDetails = ({ data }) => {
   return (
-    <tr className={`border-b text-gray-700 h-14`}>
-      <td className='pl-4'>{home_owner_details?.id}</td>
-      <td className='pl-4'>{home_owner_details?.home_owner_name}</td>
-      <td className='pl-4'>{address}</td>
-      <td className='pl-4'>{site_details?.flat_number}</td>
-      <td className='pl-4'>{site_details?.block}</td>
-      <td className='pl-4'>{site_details?.floor_number}</td>
-      <td className='pl-4'>{site_details?.site_type}</td>
-    </tr>
+    <div className='mt-16'>
+      <h4 className='font-semibold mb-2 text-xl text-gray-400'>
+        {' '}
+        Site Details{' '}
+      </h4>
+
+      <section className='flex gap-10 bg-lightBluep-4 max-w-fit rounded-md '>
+        {Object.keys(data)?.map((item, ind) => {
+          return (
+            <div key={ind} className='text-darkBlue2 col-span-1'>
+              <p className='capitalize'>
+                {' '}
+                {item?.includes('_') ? item?.split('_').join(' ') : item}{' '}
+              </p>
+              <h1 className='text-xl font-semibold'>{data[item]}</h1>
+            </div>
+          );
+        })}
+      </section>
+    </div>
+  );
+};
+
+const CartAttributes = ({ data }) => {
+  return (
+    <div className=''>
+      <h4 className={`mt-4 mb-4 font-semibold text-2xl capitalize`}>
+        Cart Attributes
+      </h4>
+
+      <section className='grid grid-cols-4 gap-4 mt-4 mb-20 '>
+        {data?.map((item, ind) => {
+          return (
+            <div key={ind} className='text-darkBlue2 col-span-1'>
+              <p> {item?.description} </p>
+              <h1 className='text-3xl font-bold'>
+                <span className='text-2xl'> ₹ </span>
+                {item?.attribute_amount
+                  ? numberToInr(item?.attribute_amount)
+                  : '0.00'}
+              </h1>
+            </div>
+          );
+        })}
+      </section>
+    </div>
   );
 };
 

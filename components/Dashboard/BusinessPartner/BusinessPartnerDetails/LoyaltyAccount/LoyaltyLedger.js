@@ -81,7 +81,7 @@ const LedgerRow = ({ item }) => {
         <div
           className={`${
             item?.ledger_type === 'credit' ? 'text-[#338600]' : 'text-[#FF0000]'
-          } font-medium flex items-center gap-1 `}
+          } font-medium flex items-center gap-1`}
         >
           <span className='text-xl'>
             {item?.ledger_type === 'credit' ? '+' : '-'}

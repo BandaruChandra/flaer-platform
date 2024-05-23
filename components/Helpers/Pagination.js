@@ -38,7 +38,7 @@ function Pagination({ pagesList, currPage, href }) {
               <Link href={`${href}page=${page}`}>
                 <button
                   className={`${
-                    currPage == page
+                    currPage === page
                       ? 'bg-darkBlue text-white cursor-default'
                       : 'bg-solidGray'
                   } min-w-10 max-w-10 h-10 rounded-full font-semibold grid place-items-center transition-all duration-300`}

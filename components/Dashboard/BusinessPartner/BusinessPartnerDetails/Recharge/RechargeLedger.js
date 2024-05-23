@@ -90,9 +90,9 @@ const RechargeLedger = ({ id, page }) => {
   }
 
   return (
-    <div>
-      <table className='min-w-full overflow-hidden rounded-md'>
-        <thead className='capitalise font-normal bg-lightBlue'>
+    <div className='max-w-[100vw] lg:min-w-full overflow-x-auto'>
+      <table className='rounded-md min-w-full'>
+        <thead className='capitalise font-normal h-14 bg-lightBlue'>
           <tr>
             <th
               scope='col'
@@ -168,14 +168,14 @@ const RechargeLedger = ({ id, page }) => {
             })}
         </tbody>
       </table>
-      <Pagination pagesList={pagesList} currPage={page} href={href} />
+      <Pagination pagesList={pagesList} currPage={Number(page)} href={href} />
     </div>
   );
 };
 
 const LedgerRow = ({ item, checkStatus }) => {
   return (
-    <tr className={`border-b text-sm text-gray-700 odd:bg-white`}>
+    <tr className={`border-b capitalize text-sm text-gray-700 odd:bg-white`}>
       <td className='py-4 pl-4 min-w-28'>{item?.id}</td>
       <td className='py-4 pl-4'>
         <p className='flex items-center'>
@@ -189,7 +189,7 @@ const LedgerRow = ({ item, checkStatus }) => {
       <td className='py-4 pl-4'>{item?.completed_at}</td>
       <td className='py-4 pl-4'>{item?.transaction_id}</td>
       <td className='py-4 pl-4'>{item?.utr_number}</td>
-      <td className='py-4 pl-4'>{item?.status}</td>
+      <td className='py-4 pl-4 text-base font-medium'>{item?.status}</td>
       <td className='py-4 pl-4'>
         {item?.status === RESPONSE_STATUS.PENDING ||
         item?.status === RESPONSE_STATUS.INITIATED ? (
