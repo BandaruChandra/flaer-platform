@@ -1,11 +1,10 @@
 import React from 'react';
 import CartLineItemsTable from './CartLineItemsTable';
-import CartAttributesTable from './CartAttributesTable';
 import { numberToInr } from '../../../../../helpers/MathHelpers';
 
 function OneCart({ currCart }) {
   return (
-    <div className='mt-6'>
+    <div className='mt-6 pl-10'>
       <div className='flex gap-20 mb-6'>
         <Summary currCart={currCart} />
 
