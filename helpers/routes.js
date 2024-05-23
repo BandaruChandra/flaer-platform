@@ -7,7 +7,7 @@ export const DASHBOARD_ROUTES = {
   // CASHBACKS_LEVELS: '/dashboard/cashbacks-level',
   PROJECTS_AND_SITES: '/dashboard/projects-and-sites',
   BUSINESS_PARTNERS: '/dashboard/business-partner',
-  LOGOUT: '/dashboard/logout',
+  // LOGOUT: '/dashboard/logout',
 };
 
 export const BUSINESS_PARTNER_ROUTES = {
